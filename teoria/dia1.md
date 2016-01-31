@@ -195,4 +195,4 @@ Git cacheará la sesión y no os preguntará el usuario o la password durante 99
 
 **2 -** Crea un [Gist](https://gist.github.com/) con el esqueleto de un index.html
 
-**3 -** Presentate en este [issue]()
+**3 -** Presentate en este [issue](https://github.com/UlisesGascon/curso-js-web-developers-012016/issues/1)
