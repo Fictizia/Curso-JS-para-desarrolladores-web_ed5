@@ -15,3 +15,8 @@
 
 - **Más información:**
   - [Diagrama de flujo en Wikiwand](https://www.wikiwand.com/es/Diagrama_de_flujo)
+
+### Otros
+
+- [Versionamiento Semántico](http://semver.org/lang/es/)
+- [JSDoc](http://usejsdoc.org/howto-es2015-classes.html)
