@@ -298,7 +298,25 @@ FinProceso
 - Sino multiplicará los tres numeros
 - Mostrar el resultado final incluyendo una referencia a la operación realizada.
 ```
-    // Tu solución
+	Proceso jugandoConNumeros
+	    Escribir "El primer número:"
+	    Leer valor1
+		
+	    Escribir "El segundo valor:"
+	    Leer valor2
+		
+		Escribir "El tercer valor:"
+	    Leer valor3
+		
+		Si valor1 < 0 Entonces
+			calculo <- valor2 + valor3
+			Escribir "El resutlado de la suma es ", calculo
+		Sino 
+			calculo <- valor1 * valor2 * valor3
+			Escribir "El resutlado de la multiplicacion es ", calculo		
+		FinSi
+	
+	FinProceso
 ```
 
 6 - Diseña un algoritmo que aplique al precio de un producto un descuento cuando se den las siguientes caracteristicas.
@@ -306,7 +324,31 @@ FinProceso
 	- Estamos en los meses de invierno
 	- Y no es viernes o fin de semana.
 ```
-    // Tu solución
+	Proceso calcularDescuento
+	    Escribir "¿En que mes estamos?"
+	    Leer mes
+		
+	    Escribir "¿En que día estamos?"
+	    Leer diaSemana
+		
+	    Escribir "¿Cuanto vale el producto?"
+	    Leer precio	
+		
+		descuento <- 25*precio/100
+		precioConDescuento <- precio - descuento
+		
+		
+		Si mes = "Diciembre" | mes = "Enero" | mes = "Febrero"  Entonces
+			Si diaSemana = "Viernes" | diaSemana = "Sabado" | diaSemana  = "Domingo"  Entonces
+				Escribir "No se aplica descuento aunque sea invierno.. ven durante la semana mejor!. Debes pagar ", precio
+			Sino
+				Escribir "BINGO! Has acertado de mes y días. Debes pagar solamente ", precioConDescuento
+			Fin Si
+		Sino 
+			Escribir "No se aplica descuento.. ven en invierno mejor!. Debes pagar ", precio		
+		FinSi
+	
+	FinProceso
 ```
 
 7 - Diseña un algoritmo que al introducir un numero por teclado. Que nos diga si es positivo o negativo.
