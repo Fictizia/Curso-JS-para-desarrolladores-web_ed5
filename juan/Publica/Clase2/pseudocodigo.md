@@ -152,3 +152,77 @@
     
     
 ```
+
+18 - Diseña un algoritmo introducido un numero y pasarlo a número romanos.
+- Esperamos que el número sea menor de 50
+
+![numeros_romanos](https://eloviparo.files.wordpress.com/2009/09/numeros-romans.jpg?w=466&h=172)
+
+```
+    // Tu solución
+    
+	Proceso Conversion_NumRomanos
+		
+		Escribir "Introduce un número del 1 al 50"
+		Leer num
+		
+		Si num>=1 & num<=50 Entonces
+			Escribir "El número introducido es correcto"
+			
+			
+			unidades<-TRUNC (num MOD 10) 
+			decenas<- TRUNC ( num / 10 )
+			
+			// Escribimos unidades y decenas
+			Escribir "Decenas: " decenas " - Unidades: " unidades
+			
+			// UNIDADES
+			Segun unidades Hacer
+				1:
+					letraUnidad<-'I'
+				2:
+					letraUnidad<-'II'
+				3:
+					letraUnidad<-'III'
+				4:
+					letraUnidad<-'IV'
+				5:
+					letraUnidad<-'V'
+				6:
+					letraUnidad<-'VI'
+				7:
+					letraUnidad<-'VII'
+				8:
+					letraUnidad<-'VIII'
+				9:
+					letraDecena<-'IX'
+			Fin Segun
+			
+			
+			// DECENAS
+			Segun decenas*10 Hacer
+				10:
+					letraDecena<-'X'
+				20:
+					letraDecena<-'XX'
+				30:
+					letraDecena<-'XXX'
+				40:
+					letraDecena<-'XL'
+				50:
+					letraDecena<-'L'
+			Fin Segun
+				
+				
+			
+			Escribir "Conversión del número " num " a número romano " letraDecena letraUnidad	
+			
+			
+			
+		Sino
+			Escribir "El número introducido es incorrecto"
+		Fin Si
+		
+	FinProceso
+
+```
