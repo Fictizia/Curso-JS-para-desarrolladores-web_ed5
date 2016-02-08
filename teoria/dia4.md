@@ -8,7 +8,7 @@
 - [Entradas gratuitas](https://t3chfest2016.eventbrite.es/)
 
 ### Caracteres especiales:
-    ```javascript
+```javascript
     /*
     \t -> Tabulador
     \' -> Comillas Simples
@@ -20,7 +20,7 @@
     function caracteresDemo () {
     console.log("Hasta aquí... todo correcto. Ahora vamos a \"tabular\":\tves? Ya estamos más lejos.\n\'Otra linea ;-)\'")
     };
-    ```
+```
 
 ### Ejercicios
 
