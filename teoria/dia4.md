@@ -7,6 +7,20 @@
 - [Programa de charlas](https://t3chfest.uc3m.es/programa/)
 - [Entradas gratuitas](https://t3chfest2016.eventbrite.es/)
 
+### Caracteres especiales:
+    ```javascript
+    /*
+    \t -> Tabulador
+    \' -> Comillas Simples
+    \" -> Comillas Dobles
+    \\ -> \
+    \n -> Salto de línea
+    */
+
+    function caracteresDemo () {
+    console.log("Hasta aquí... todo correcto. Ahora vamos a \"tabular\":\tves? Ya estamos más lejos.\n\'Otra linea ;-)\'")
+    };
+    ```
 
 ### Ejercicios
 
