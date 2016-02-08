@@ -14,29 +14,76 @@
 
 **1 -** Utiliza .assert para controlar cuando se muestra tu nombre por consola.
 ```javascript
-    // Tu solución
+	var controlador = false;
+	console.assert(controlador,  "Hola, yo soy Ulises Gascón");
 ```
 
 **2 -** Crea un script que nos permita calcular el tiempo que se necesita para realizar la siguientes acciones.
 - Especificaciones:
 	- Imprimir tu nombre usando **console.log, console.info, console.warn**
 ```javascript
-    // Tu solución
+	var nombre = "Hola, yo soy Ulises Gascón";
+	console.time("presentación");
+	console.log(nombre);
+	console.info(nombre);
+	console.warn(nombre);
+	console.timeEnd("presentación");
 ```
 
 **3 -** Partiendo del ejercicio anterior mejora los estilos de cada mensaje usando estilos.
 ```javascript
-    // Tu solución
+	var nombre = "Hola, yo soy Ulises Gascón";
+	console.time("presentación");
+	console.log("%c %s", "background: black; color: #FFF; font-size:20px;" ,nombre);
+	console.info("%c %s", "background: #3EBDFF; color: #FFF; font-size:20px;" ,nombre);
+	console.warn("%c %s", "background: #FFAA00; color: #FFF; font-size:22px;" ,nombre);
+	console.timeEnd("presentación");
 ```
 
 **4 -** Agrupa cada tipo de mensaje y añade un contador de tiempo por cada grupo.
 ```javascript
-    // Tu solución
+	var nombre = "Hola, yo soy Ulises Gascón";
+	console.time("presentación");
+	
+	// console.log
+	console.group("grupo console.log");
+	console.time("tiempo grupo console.log");
+	console.log("%c %s", "background: black; color: #FFF; font-size:20px;" ,nombre);
+	console.timeEnd("tiempo grupo console.log");
+	console.groupEnd();
+	
+	
+	// console.info
+	console.group("grupo console.info");
+	console.time("tiempo grupo console.info");
+	console.info("%c %s", "background: #3EBDFF; color: #FFF; font-size:20px;" ,nombre);
+	console.timeEnd("tiempo grupo console.info");
+	console.groupEnd();
+	
+	
+	// console.warn
+	console.group("grupo console.warn");
+	console.time("tiempo grupo console.warn");
+	console.warn("%c %s", "background: #FFAA00; color: #FFF; font-size:22px;" ,nombre);
+	console.timeEnd("tiempo grupo console.warn");
+	console.groupEnd();
+	
+	
+	console.timeEnd("presentación");
 ```
 
 **5 -** Crea una tabla usando la consola para mostrar el nombre de tus compañeros y el puesto que ocupa en la clase.
 ```javascript
-    // Tu solución
+    var alumnos = [
+	     { nombre: "Juan", puesto: 1 },
+	     { nombre: "Oscar", puesto: 2 },
+	     { nombre: "Paul", puesto: 3 },
+	     { nombre: "Nuria", puesto: 4 },
+	     { nombre: "Noemi", puesto: 5 }
+	     { nombre: "Oliver", puesto: 6 }
+	 ];
+	 
+	 console.table(alumnos);
 ```
 
 
