@@ -357,7 +357,7 @@ function era3 () {
 **1 -** Vamos a solicitar la colaboración del usuario para lograr nuestros objetivos:
 - Objetivos:
 	-  Captura el nombre del usuario usando prompt
-	-  Pregunta al usuario si desea *"comprobar lo rápido que funcioan su navgador"*.
+	-  Pregunta al usuario si desea *"comprobar lo rápido que funciona su navegador"*.
 	-  En caso afirmativo imprimiremos el nombre del usuario por consola aplicandole estilos y calculando el tiempo que tarda en realizar la operación
 - En caso negativo mostraremos un *alert* informativo.
 ```javascript
