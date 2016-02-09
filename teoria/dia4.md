@@ -530,7 +530,14 @@ Otras palabras reservadas en modo estricto:
 - Valor de su producto
 
 ```javascript
-    // Tu solución
+	function calculosVarios(valor1, valor2){
+		console.info("El valor de la suma es:", valor1+valor2);
+		console.info("El valor de la resta es:",valor1-valor2);
+		console.info("El valor de la división es:", valor1/valor2);
+		console.info("El valor de la división es:", valor1*valor2)
+	};
+	
+	calculosVarios(5,5);
 ```
 
 2 - Diseña un algoritmo para calcular el porcentaje de hombres y mujeres en nuestro curso.
@@ -538,7 +545,21 @@ Otras palabras reservadas en modo estricto:
 	- Calcular porcentajes (segmento*100)/total
 
 ```javascript
-	// Tu solución
+	function porcentajeAlumnos(totalHombres, totalMujeres){
+		var totalAlumnos = totalHombres + totalMujeres;
+		var porcentajeMujeres = (totalMujeres*100)/totalAlumnos;
+		var porcentajeHombres = (totalHombres*100)/totalAlumnos;
+		
+		console.info("El total de alumnos es:", totalAlumnos)
+		
+		console.log("El total de mujeres es:", totalMujeres);
+		console.info("El % de mujeres es:", porcentajeMujeres);
+		
+		console.log("El total de hombres es:", totalHombres);
+		console.info("El % de hombres es:", porcentajeHombres);
+	};
+	
+	porcentajeAlumnos(4,2);
 ```
 
 
@@ -614,290 +635,4 @@ console.log("valor boleano de -0:", Boolean(-0));
 console.log("valor boleano de null:", Boolean(null));
 console.log("valor boleano de undefined:", Boolean(undefined));
 console.log("valor boleano de NaN:", Boolean(NaN));
-```
-
-
-### If... else
-
-- Estructura:
-    ```javascript
-    /* IF ...ELSE
-    if (-algo verdadero-) {
-        -ejecutaremos este código-
-    } else {
-        -Si lo anterior no era verdadero, se ejecutara este código-
-    };
-    */
-    ```
-
-- Documentación:
-    - [If... else en w3schools](http://www.w3schools.com/js/js_if_else.asp)
-    - [If... else en MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
-
-- Ejemplo:
-    ```javascript
-    if (true) {
-        console.log("true, por eso me ejecuto");
-    } else {
-        console.log("false, por eso me ejecuto");
-    }
-    ```
-
-
-### Else if...
-
-```javascript
-function testCondiccion (condicion){
-    if (condicion == 1) {
-        console.log("1, por eso me ejecuto");
-    } else if (condicion == 2){
-        console.log("2, por eso me ejecuto");
-    } else {
-        console.log("no es 1 o 2, por eso me ejecuto");
-    }
-}
-```
-
-
-### Switch
-
-- Estructura:
-    ```javascript
-    /* Switch
-	switch(expresión) {
-	    case n:
-	        //Código
-	        break;
-	    case n:
-	        //Código
-	        break;
-	    default:
-	        //Código
-	}
-    */
-    ```
-
-- Documentación:
-    - [Switch en w3schools](http://www.w3schools.com/js/js_switch.asp)
-    - [Switch en MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/switch)
-
-- **Casos únicos:**
-    ```javascript
-	var nombre = "";
-	switch (nombre) {
-	  case "Pepe":
-	    console.log("Hola Pepe");
-	    break;
-	  case "Luis":
-	    console.log("Hola Luis");
-	    break;
-	  case "Antonio":
-	    console.log("Hola Antonio");
-	    break;
-	  default:
-	    console.log('Ninguno de los nombres que pensamos... es '+nombre);
-	}
-    ```
-
-- **Multiples coincidencias:**
-    ```javascript
-	var nombre = "";
-	switch (nombre)
-	{
-	   case "Pepe":
-	   case "Luis":
-	   case "Antonio":
-	       alert('Hola '+nombre);
-	       break;
-
-	   default:
-	       console.log('Ninguno de los nombres que pensamos... es '+nombre);
-	}
-    ```
-
-### Operador Ternario (?:)
-
-- Estructura:
-    ```javascript
-    /* 
-    -- Una operación por caso --
-	condicion ? expresion1 : expresion2 
-    
-    -- Multiples Operaciones por caso --
-	condicion ? (
-		operacion1,
-		operacion2,
-		otraoperacion
-	) : ( 
-		operacion1,
-		operacion2,
-		otraoperacion
-	);
-
-    -- Evaluaciones multiples --
-    	condicion ? expresion1 : condicion2 ? expresion1 : expresion2;
-    */
-    ```
-
-- Una operación por caso:
-```javascript
-	var esMiembro = true;
-	console.info("El pago son  " + (esMiembro ? "20.00€" : "50.00€"));
-```
-
-- Evalución múltiple:
-```javascript
-	var esMiembro = true;
-	var esAdulto = true;
-	console.info(esMiembro ? "El pago son 20.00€" : esAdulto ? "Puedes enviar la solicitud cuando quieras" : "Tines que esperar aún. Lo siento.");
-```
-
-- Múltiples Operaciones:
-```javascript
-	var mensaje,
-	esMiembro = true;
-	
-	esMiembro ? (
-		mensaje = "El pago son 20.00€",
-		console.info(mensaje)
-	) : (
-		mensaje = "El pago son 50.00€",
-		console.info(mensaje)
-	);
-```
-
-**Ejercicios:**
-
-Realiza los siguientes ejercicios usando en cada uno los tres tipos de condicionales (If...else, Switch, operador ternario )
-
-**1 -** Diseña un algoritmo que lea dos números y los compare. Como resultado esperamos que nos diga cual es mayor... o si son iguales.
-
-- Usando *if...else*
-```javascript
-    // Tu solución
-```
-
-- Usando *Operador Ternario (?:)*
-```javascript
-    // Tu solución
-```
-
-- Usando *Switch*
-```javascript
-    // Tu solución
-```
-
-**2 -** Diseña un algoritmo que lea tres números distintos y nos diga cual de ellos es el mayor.
-
-- Usando *if...else*
-```javascript
-    // Tu solución
-```
-
-- Usando *Operador Ternario (?:)*
-```javascript
-    // Tu solución
-```
-
-- Usando *Switch*
-```javascript
-    // Tu solución
-```
-
-
-**3 -** Diseña un algoritmo que siga el siguiente proceso:
-- Si el primero es negativo, debe sumar los otros dos
-- Sino multiplicará los tres numeros
-- Mostrar el resultado final incluyendo una referencia a la operación realizada.
-
-- Usando *if...else*
-```javascript
-    // Tu solución
-```
-
-- Usando *Operador Ternario (?:)*
-```javascript
-    // Tu solución
-```
-
-- Usando *Switch*
-```javascript
-    // Tu solución
-```
-
-**4 -** Diseña un algoritmo que aplique al precio de un producto un descuento cuando se den las siguientes caracteristicas.
-- Se aplica un 25% cuando:
-	- Estamos en los meses de invierno
-	- Y no es viernes o fin de semana.
-
-- Usando *if...else*
-```javascript
-    // Tu solución
-```
-
-- Usando *Operador Ternario (?:)*
-```javascript
-    // Tu solución
-```
-
-- Usando *Switch*
-```javascript
-    // Tu solución
-```
-
-**5 -** Diseña un algoritmo que al introducir un numero por teclado. Que nos diga si es positivo o negativo.
-
-- Usando *if...else*
-```javascript
-    // Tu solución
-```
-
-- Usando *Operador Ternario (?:)*
-```javascript
-    // Tu solución
-```
-
-- Usando *Switch*
-```javascript
-    // Tu solución
-```
-
-
-**6 -** Diseña un algoritmo que al introducir un número por teclado. Que nos diga si es par o impar.
-
-- Usando *if...else*
-```javascript
-    // Tu solución
-```
-
-- Usando *Operador Ternario (?:)*
-```javascript
-    // Tu solución
-```
-
-- Usando *Switch*
-```javascript
-    // Tu solución
-```
-
-
-**7 -** Diseña un algoritmo que nos confirme si un [año es bisiesto](https://es.wikipedia.org/wiki/A%C3%B1o_bisiesto) o no.
-- Caracteristicas de un año bisiesto:
-	- Tiene que ser divisible entre 4
-	- No tiene que ser divisible entre 100
-	- Puede ser divisble entre 100 y entre 400
-
-- Usando *if...else*
-```javascript
-    // Tu solución
-```
-
-- Usando *Operador Ternario (?:)*
-```javascript
-    // Tu solución
-```
-
-- Usando *Switch*
-```javascript
-    // Tu solución
 ```
