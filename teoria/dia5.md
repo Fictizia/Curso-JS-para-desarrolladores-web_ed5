@@ -1,7 +1,12 @@
 # Clase 5
 
 
-
+### Asignación por igualdad
+    ```javascript
+	var administrador = 'Yo mismo';
+	var esAdministrador = (administrador === 'Yo mismo');
+    ```
+    
 ### If... else
 
 - Estructura:
