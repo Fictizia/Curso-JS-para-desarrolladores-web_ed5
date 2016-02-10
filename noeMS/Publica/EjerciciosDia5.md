@@ -122,11 +122,11 @@ if (num1<0) {
 
 - Usando *if...else*
 ```javascript
-    mes = prompt("Dime un mes");
+mes = prompt("Dime un mes");
 dia = prompt("Dime un día");
 console.log(mes, dia)
 
-if ( (mes == "enero" && mes == "febrero" && mes == "marzo") && (dia != "viernes" && dia != "sabado" && dia != "domingo") ) {
+if ( (mes == "enero" || mes == "febrero" || mes == "marzo") && (dia != "viernes" || dia != "sabado" || dia != "domingo") ) {
 	console.log("Enhorabuena, tiene usted un 25% de descuento")
 } else {
 	console.log("Lo sentimos, no le corresponde ningún descuento")
@@ -147,17 +147,34 @@ if ( (mes == "enero" && mes == "febrero" && mes == "marzo") && (dia != "viernes"
 
 - Usando *if...else*
 ```javascript
-    // Tu solución
+   num1 = prompt("Dame un número");
+
+if (num1<0) {
+	console.log("El número es negativo")
+} else {
+	console.log("El número es positivo")
+}
 ```
 
 - Usando *Operador Ternario (?:)*
 ```javascript
-    // Tu solución
+    num1 = prompt("Dame un número");
+
+(num1 < 0) ? (console.log("El número es negativo")) : console.log("El número es positivo")
 ```
 
 - Usando *Switch*
 ```javascript
-    // Tu solución
+    num1 = prompt("Dame un número");
+
+switch (true) { 
+  case num1<0:
+    console.log("El número es negativo");
+    break;
+  case num1>0:
+    console.log("El número es positivo")
+    break;
+}
 ```
 
 
