@@ -235,7 +235,7 @@ Realiza los siguientes ejercicios usando en cada uno los tres tipos de condicion
     // Tu solución
 ```
 
-**5 -** Diseña un algoritmo que al introducir un numero por teclado. Que nos diga si es positivo o negativo.
+**5 -** Diseña un algoritmo que al introducir un numero nos diga si es positivo o negativo.
 
 - Usando *if...else*
 ```javascript
@@ -253,7 +253,7 @@ Realiza los siguientes ejercicios usando en cada uno los tres tipos de condicion
 ```
 
 
-**6 -** Diseña un algoritmo que al introducir un número por teclado. Que nos diga si es par o impar.
+**6 -** Diseña un algoritmo que al introducir un número nos diga si es par o impar.
 
 - Usando *if...else*
 ```javascript
