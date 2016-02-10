@@ -2,10 +2,10 @@
 
 
 ### Asignación por igualdad
-    ```javascript
+```javascript
 	var administrador = 'Yo mismo';
 	var esAdministrador = (administrador === 'Yo mismo');
-    ```
+```
     
 ### If... else
 
