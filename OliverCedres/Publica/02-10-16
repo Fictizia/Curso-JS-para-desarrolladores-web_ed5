@@ -1,0 +1,151 @@
+
+var numero1 = prompt("Dame un numero");
+var numero2 = prompt("Dame otro numero");
+if (numero1 == numero2) {
+    console.info("Los numeros son iguales");
+} else if (numero1 > numero2) {
+    console.info("El primer numero es mayor");
+} else {
+    console.info("El segundo numero es mayor");
+    }
+ 
+
+
+var numero1 = prompt("Dame un numero");
+var numero2 = prompt("Dame otro numero");
+(numero1 > numero2) ? console.info(numero1, "es mayor")
+	: (numero1 < numero2) ? console.info(numero2, "es mayor")
+	: console.info("Son iguales");
+
+
+
+var numero1 = prompt("Dame un numero");
+var numero2 = prompt("Dame otro numero");
+switch (true){
+// switch tiene valor true para poder comparar booleanos
+	case (numero1 > numero2):
+	console.info(numero1, "es mayor")
+	break;
+	case (numero1 < numero2):
+	console.info(numero2, "es mayor")
+	break;
+	default:
+	console.info("Son iguales");
+}
+
+
+
+var numero1 = prompt("Dame un numero");
+var numero2 = prompt("Dame otro numero");
+var numero3 = prompt("Dame otro numero");
+if (numero1 > numero2 && numero1 > numero3) {
+    console.info(numero1, "es mayor");
+} else if (numero2 > numero3) {
+    console.info(numero2, "es mayor");
+} else {
+    console.info(numero3, "es mayor");
+}
+
+
+
+var numero1 = prompt("Dame un numero");
+var numero2 = prompt("Dame otro numero");
+var numero3 = prompt("Dame otro numero");
+(numero1 > numero2 && numero1 > numero3) ? console.info(numero1, "es mayor")
+	: (numero2 > numero3) ? console.info(numero2, "es mayor")
+	: console.info(numero3, "es mayor");
+
+
+
+var numero1 = prompt("Dame un numero");
+var numero2 = prompt("Dame otro numero");
+var numero3 = prompt("Dame otro numero");
+	switch (true){
+// switch tiene valor true para poder comparar booleanos
+	case (numero1 > numero2 && numero1 > numero3):
+	console.info(numero1, "es mayor")
+	break;
+	case (numero2 > numero3):
+	console.info(numero2, "es mayor")
+	break;
+	default:
+	console.info(numero3, "es mayor");
+}
+
+
+
+var numero1 = prompt("Dame un numero");
+var numero2 = prompt("Dame otro numero");
+var numero3 = prompt("Dame otro numero");
+if (numero1 < 0) {
+    console.info("El primer numero es negativo y el segundo numero por el tercero da " + (numero2+numero3));
+} else {
+    console.info("La multiplicación de todos da " + (numero1 *= numero2*numero3));
+}
+
+
+
+var numero1 = prompt("Dame un numero");
+var numero2 = prompt("Dame otro numero");
+var numero3 = prompt("Dame otro numero");
+(numero1 < 0) ? console.info("El primer numero es negativo y el segundo numero por el tercero da " + (numero2+numero3))
+	: console.info("La multiplicación de todos da " + (numero1 *= numero2*numero3));
+
+
+
+var numero1 = prompt("Dame un numero");
+var numero2 = prompt("Dame otro numero");
+var numero3 = prompt("Dame otro numero");
+switch (true){
+// switch tiene valor true para poder comparar booleanos
+	case (numero1 < 0):
+	console.info("El primer numero es negativo y el segundo numero por el tercero da " + (numero2+numero3))
+	break;
+	default:
+	console.info("La multiplicación de todos da " + (numero1 *= numero2*numero3));
+}
+
+
+
+    Descuento del 25%
+var mes = prompt("Mes del año");
+var dia = prompt("Dia de la semana");
+if ((mes === "diciembre" || mes === "enero" || mes === "febrero" || mes === "marzo") && 
+	(dia != "viernes" || dia != "sabado" || dia != "domingo")){
+	console.info("Le corresponde un 25% de descuento");
+} else {
+	console.info("No le corresponde ningun descuento");
+}
+
+
+
+    Positivo vs Negativo
+var numero = prompt("Dame un numero");
+if (numero > 0){
+	console.info("Es positivo");
+} else {
+	console.info("Es negativo");
+}
+
+
+
+    Par vs Impar
+var numero = prompt("Dame un numero");
+if (numero % 2 == 0){
+	console.info("Es par");
+} else {
+	console.info("Es impar");
+}
+
+
+
+    Bisiesto vs No Bisiesto
+var year = prompt("Dame un año");
+
+if ( (year % 4 == 0) & (year % 100 != 0) ){
+	console.info("Amigo, el año "+year+" es bisiesto!");
+} else  if ( (year % 400 == 0) & (year % 100 == 0) ){
+	console.info("Amigo, el año "+year+" es bisiesto!");
+} else {
+	console.info("Amigo, el año "+year+" no es bisiesto!");
+}
