@@ -310,12 +310,38 @@ Realiza los siguientes ejercicios usando en cada uno los tres tipos de condicion
 
 - Usando *Operador Ternario (?:)*
 ```javascript
-    // Tu solución
+	function calcularDescuento (mes, diaSemana, precio) {
+
+		var descuento = 25*precio/100;
+		var precioConDescuento = precio - descuento;
+
+		(mes === "Diciembre" || mes === "Enero" || mes === "Febrero") ? 
+				(diaSemana === "Viernes" || diaSemana === "Sabado" || diaSemana === "Domingo") ?
+				 console.warn("No se aplica descuento aunque sea invierno.. ven durante la semana mejor!. Debes pagar", precio)
+				 : console.info("BINGO! Has acertado de mes y días. Debes pagar solamente", precioConDescuento)
+		: console.warn("No se aplica descuento.. ven en invierno mejor!. Debes pagar", precio);
+	}
 ```
 
 - Usando *Switch*
 ```javascript
-    // Tu solución
+	function calcularDescuento (mes, diaSemana, precio) {
+
+		var descuento = 25*precio/100;
+		var precioConDescuento = precio - descuento;
+
+		switch (true) {
+			case ((mes === "Diciembre" || mes === "Enero" || mes === "Febrero") && (diaSemana !== "Viernes" && diaSemana !== "Sabado" && diaSemana !== "Domingo")):
+				console.info("BINGO! Has acertado de mes y días. Debes pagar solamente", precioConDescuento);
+				break;
+			case (mes !== "Diciembre" && mes !== "Enero" && mes !== "Febrero"):
+				console.warn("No se aplica descuento.. ven en invierno mejor!. Debes pagar", precio);
+				break;
+			default:
+				console.warn("No se aplica descuento aunque sea invierno.. ven durante la semana mejor!. Debes pagar", precio);
+		}
+
+	}
 ```
 
 **5 -** Diseña un algoritmo que al introducir un numero nos diga si es positivo o negativo.
@@ -335,12 +361,25 @@ Realiza los siguientes ejercicios usando en cada uno los tres tipos de condicion
 
 - Usando *Operador Ternario (?:)*
 ```javascript
-    // Tu solución
+	function esPositivo (numero) {
+		(numero < 0) ? console.info(numero, " es negativo")
+			: console.info(numero, " es positivo");
+	}
 ```
 
 - Usando *Switch*
 ```javascript
-    // Tu solución
+	function esPositivo (numero) {
+
+		switch(true){
+			case (numero < 0):
+				console.info(numero, " es negativo");
+				break;
+			default:
+				console.info(numero, " es positivo");
+		}
+
+	}
 ```
 
 
@@ -360,12 +399,25 @@ Realiza los siguientes ejercicios usando en cada uno los tres tipos de condicion
 
 - Usando *Operador Ternario (?:)*
 ```javascript
-    // Tu solución
+	function esPar (numero) {
+		(numero %2 === 0) ? console.info(numero, " es par")
+			: console.info(numero, " es impar");
+	}
 ```
 
 - Usando *Switch*
 ```javascript
-    // Tu solución
+	function esPar (numero) {
+
+		switch(true){
+			case (numero %2 === 0):
+				console.info(numero, " es par");
+				break;
+			default:
+				console.info(numero, " es impar");
+		}
+
+	}
 ```
 
 
@@ -392,10 +444,27 @@ Realiza los siguientes ejercicios usando en cada uno los tres tipos de condicion
 
 - Usando *Operador Ternario (?:)*
 ```javascript
-    // Tu solución
+	function esBisiesto (year) {
+		(year % 4 === 0 && year % 100 !== 0) 
+			? console.info("Amigo, el año " +year+ " es bisiesto!")
+			: (year % 400 === 0 && year % 100 === 0) 
+			? console.info("Amigo, el año " +year+ " es bisiesto!")
+			: console.warn("Amigo, el año " +year+ " NO es bisiesto!");
+	}
 ```
 
 - Usando *Switch*
 ```javascript
-    // Tu solución
+	function esBisiesto (year) {
+
+		switch(true){
+			case (year % 4 === 0 && year % 100 !== 0):
+			case (year % 400 === 0 && year % 100 === 0):
+				console.info("Amigo, el año " +year+ " es bisiesto!");
+				break;
+			default:
+				console.warn("Amigo, el año " +year+ " NO es bisiesto!");
+		}
+
+	}
 ```
