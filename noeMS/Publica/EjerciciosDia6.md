@@ -98,17 +98,35 @@ do {
 
 - Usando *for*
 ```javascript
-    // Tu solución
+ for (var contador=0; contador <=100; contador++) {
+    if (contador % 2 == 0) {
+        console.log(contador);
+    }
+}
 ```
 
 - Usando *while*
 ```javascript
-    // Tu solución
+    var contador=0;
+
+while (contador<=100) {
+    if(contador % 2 == 0) {
+        console.log(contador)
+    }
+    contador++;
+}
 ```
 
 - Usando *Do...While*
 ```javascript
-    // Tu solución
+    var contador=0;
+
+do {
+    if (contador % 2 == 0){
+        console.log(contador)
+    }
+    contador++;
+} while (contador<=100);
 ```
 
 **5 -** Diseña un algoritmo que imprima los números impares entre un número dado por el usuario y los siguientes 50 números.
