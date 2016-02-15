@@ -171,9 +171,8 @@ switch (true) {
   case num1<0:
     console.log("El número es negativo");
     break;
-  case num1>0:
+  default:
     console.log("El número es positivo")
-    break;
 }
 ```
 
