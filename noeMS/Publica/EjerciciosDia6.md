@@ -51,17 +51,29 @@ if (pass != "Fictizia mola mucho"){
 
 - Usando *for*
 ```javascript
-    // Tu solución
+var contador=1;
+
+while (contador <=100) {
+    console.log(contador);
+    contador++;
+}
 ```
 
 - Usando *while*
 ```javascript
-    // Tu solución
+    for (var contador = 1; contador <=100; contador++) {
+    console.log(contador)
+}
 ```
 
 - Usando *Do...While*
 ```javascript
-    // Tu solución
+    var contador=1;
+
+do {
+    console.log(contador);
+    contador++;
+} while (contador<=100);
 ```
 
 **3 -** Diseña un algoritmo que imprima los numeros del 100 al 0.
