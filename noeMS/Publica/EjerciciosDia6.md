@@ -51,19 +51,20 @@ if (pass != "Fictizia mola mucho"){
 
 - Usando *for*
 ```javascript
-var contador=1;
-
-while (contador <=100) {
-    console.log(contador);
-    contador++;
+for (var contador = 1; contador <=100; contador++) {
+    console.log(contador)
+}tador++;
 }
 ```
 
 - Usando *while*
 ```javascript
-    for (var contador = 1; contador <=100; contador++) {
-    console.log(contador)
-}
+
+var contador=1;
+
+while (contador <=100) {
+    console.log(contador);
+    
 ```
 
 - Usando *Do...While*
@@ -80,12 +81,19 @@ do {
 
 - Usando *for*
 ```javascript
-    // Tu solución
+   for (var contador = 100; contador >=0; contador--) {
+    console.log(contador)
+}
 ```
 
 - Usando *while*
 ```javascript
-    // Tu solución
+    var contador=100;
+
+while (contador >=0) {
+    console.log(contador);
+    contador--;
+}
 ```
 
 - Usando *Do...While*
@@ -133,12 +141,27 @@ do {
 
 - Usando *for*
 ```javascript
-    // Tu solución
+    //var numero = prompt("Dime un número");
+for (var impar=0; impar<=50;) {
+    if(numero % 2 !== 0) {
+        console.log(numero);
+        impar++;
+    }
+    numero++;
+}
 ```
 
 - Usando *while*
 ```javascript
-    // Tu solución
+    var numero = prompt("Dime un número"); 
+var impar=0;
+while (impar<=50) {
+    if(numero % 2 !== 0) {
+        console.log(numero);
+        impar++
+    }
+    numero++;
+}
 ```
 
 - Usando *Do...While*
