@@ -287,7 +287,40 @@ function imprimirImpares (numero) {
 
 - Usando *for*
 ```javascript
-    // Tu solución
+    
+function totalParesImpares(numero) {
+
+  var totalImpares = 0;
+  var totalPares = 0;
+  
+  // Variable contadora de los números pares
+  var numeroPar = 0;
+  
+  for (numero; numeroPar<=50 ; numero++) {
+    
+    if ( numero % 2 === 0) {
+    
+      // Número par
+      console.info(numero);
+      totalPares = totalPares + numero;
+      numeroPar++;
+    
+    }
+    
+    else {
+    	// Número impar
+      
+     	console.info(numero);
+      totalImpares = totalImpares + numero;
+    
+    }
+ 
+  }
+ 
+  console.info("La suma total de números pares es: " + totalPares + " y de los impares: " + totalImpares );
+
+}
+    
 ```
 
 - Usando *while*
@@ -304,6 +337,111 @@ function imprimirImpares (numero) {
 - Esperamos que el número sea menor de 50
 
 ![numeros_romanos](https://eloviparo.files.wordpress.com/2009/09/numeros-romans.jpg?w=466&h=172)
+
+```javascript
+
+function convertirRomanos(numero) {
+ 	var letraUnidad, letraDecena = "";
+  var unidades;
+  var decenas;
+  
+  // Comprobamos que el número introducido sea correcto
+  if ( numero>=1 && numero<=50 ) {
+  
+    
+    // Dividimos el número en unidades y decenas
+    
+    unidades = parseInt(numero % 10);
+    decenas = parseInt(numero / 10);
+    	
+    // Escribimos unidades y decenas
+		console.log( "Decenas: " + decenas + " - Unidades: " + unidades);
+    
+    switch( unidades ) {
+    
+      case 1:
+        letraUnidad = "I";
+         break;
+        
+      case 2:
+        letraUnidad = "II";
+         break;
+        
+      case 3:
+        letraUnidad = "III";
+         break;
+        
+      case 4:
+        letraUnidad = "IV";
+         break;
+        
+      case 5:
+        letraUnidad = "V";
+         break;
+        
+      case 6:
+        letraUnidad = "VI";
+         break;
+        
+      case 7:
+        letraUnidad = "VII";
+         break;
+        
+      case 8:
+        letraUnidad = "VIII";
+         break;
+        
+      case 9:
+        letraUnidad = "IX";
+         break;
+        
+      case 10:
+        letraUnidad = "X";
+        break;
+        
+    
+    }
+    
+      
+     switch( decenas*10 ) {
+    
+      case 10:
+        letraDecena = "X";
+         break;
+        
+      case 20:
+        letraDecena = "XX";
+         break;
+        
+      case 30:
+        letraDecena = "XXX";
+         break;
+        
+      case 40:
+        letraDecena = "XL";
+         break;
+        
+      case 50:
+        letraDecena = "L";
+         break;
+           
+    }
+    
+    console.info("Conversión del número " + numero + " a número romano: " + letraDecena +  letraUnidad);
+
+  }
+  
+  else {
+  	console.warn("El número introducido no es correcto");
+  
+  }
+  
+  
+}
+
+
+```
+
 
 - Usando *for*
 ```javascript
