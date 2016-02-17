@@ -255,7 +255,22 @@ do {
 
 - Usando *for*
 ```javascript
-    // Tu solución
+   
+function imprimirImpares (numero) {
+  
+  for( var totalImpares = 0; totalImpares <= 50; numero++ ) {
+  
+    if ( numero%2 !== 0 ) {
+      
+      console.info(numero);
+      totalImpares++;
+      
+    }
+    
+  }
+  
+}
+   
 ```
 
 - Usando *while*
