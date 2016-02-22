@@ -510,7 +510,22 @@ console.log('  Fictizia '.trim()); // 'Fictizia'
 1 - Diseña un algoritmo que cuente las veces que aparece una determinada letra en una frase.
 
 ```javascript
-    // Tu solución
+	function cuantasVeces (letra, texto) {
+		
+		var totalVeces = 0;
+		var seleccionTexto = texto.split("");
+		
+		for (var i = 0; i <= seleccionTexto.length; i++) {
+			
+			if (seleccionTexto[i] === letra){
+				totalVeces++
+			};
+			
+		};
+
+		console.info(letra, "se ha repetido un total Total de suma de pares ", totalVeces);
+
+	}
 ```
 
 
@@ -525,44 +540,4 @@ function testArreglos () {
     console.log(juntandoArreglos[0][0]);
     console.log(juntandoArreglos[1][3]);
 };
-```
-
-2 - Junta estos tres Arrays *["Oscar", ...], [9897667, ...], [false, ...]* de tal forma que construyan un único Array anidado *[["Oscar", 9897667, false], [etc...]]* 
-```javascript
-	var arreglo1 = ["Oscar", "Pedro", "Marco", "Juana"],
-		arreglo2 = [9897667, 81721623, 91823871, 71236123],
-		arreglo3 = [false, true, true, false];
-
-	// Tu solución
-```
-
-3 - Crea un Array con 100 numeros enteros al azar. Después crea un array para almacenar los números pares y otro array para los impares.
-
-- Opcional: Ordena los números pares e impares en sus respectivos arrays
-
-```javascript
-	// Tu solución
-```
-
-4 - Vamos a gestionar la lista de asistentes de un evento. 
-
-- Características:
-	- Cada asistente recibirá el identificador de su posición en el Array.
-	- El identificador no puede cambiar una vez reservado el asiento.
-	- Los asistentes pueden darse de baja, y el asiento que ocupaban queda libre.
-	- Los nuevos asistentes seran asigandos primero a asientos desocupados. 
-
-- Opcional:
-	- Verifica antes de asignar un asistente que no se regitro previamente. 
-
-```javascript
-var lista = [];
-
-function asignar(nombre){
-
-}
-
-function quitar(nombre){
-
-}
 ```
