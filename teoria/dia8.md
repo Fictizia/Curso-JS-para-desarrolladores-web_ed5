@@ -10,7 +10,7 @@
     // Tu solución
 ```
 
-4 - ¿Cuantos milisengundos quean para terminar el curso?
+4 - ¿Cuantos milisengundos quean para terminar el curso? y... ¿en horas o días?
 ```javascript
     // Tu solución
 ```
