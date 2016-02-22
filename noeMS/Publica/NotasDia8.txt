@@ -1,0 +1,89 @@
+Las cadenas son un tipo de variable propio de JS.
+
+Es todo lo referente a texto. Siempre irán con comillas (pueden ser simples o dobles, dependiendo de la guia de estilo. Tenemos que se constantes).Es
+Cuando trabajamos con templates, suelen ser simples ya que sino tendríamos que "escapar" todo el html.
+
+Propiedades de string
+
+.length() : nos permite recoger un número. Si una cadena está vacía el valor será 0. 
+
+Métodos de strings
+
+Divisores: a través de un parámetro (cada vez que haya un espacio, me lo divides) o contando elementos (cuentame 15 caracteres y divide)
+
+[Unicode: https://es.wikipedia.org/wiki/Unicode]
+
+.fromCharCode() : a lo mejor tenemos que traernos datos en unicode y convertirlo.
+
+.anchor() : nos permite crear un link.,
+
+.charAt() : si le indicamos la posición, nos devolverá lo que haya en esa posición. 
+
+.concat() : la concatenación se puede hacer sumando las cadenas, o bien podemos usar el método nativo concat()
+
+.indexOf(): nos indica en qué posición aparece primero un caracter que le indicamos. Si no apareciera este caracter, nos devolvería un -1.
+
+.lastIndexOf(): nos indica la última posición en la que aparece. 
+
+Para saber cuantas veces se repite una letra en una cadena, tendríamos que hacer un bucle. No hay método para ello.
+
+.link(): método arcáico para crear link.
+
+.slice(): nos permite cortar cadenas de texto. 
+
+.split(): nos permite dividir una cadena utilizando un separador, el que nosotros le indiquemos. 
+
+.toLocaleLowerCase()/.toLocaleUpperCase(): devuele todo en minusculas/mayusculas con las características locales 
+
+.toLowerCase/.toUpperCase igual pero sin las caracteristicas colaes.
+
+
+ARRAYS
+
+Un array es una colección de datos.
+
+Puede contener todo el tipo de variables que queramos: fechas, funciones, etc..
+
+Sintaxis: nombreArray = [valor1, valor2, valor3]
+
+var arreglo = [];
+arreglo = [1, "platano", "piscina", "manzana", true];
+
+arreglo[1]; = nos daría plátano porque empieza a contar desde 0.
+
+Cuando usamos el delete lo que hace es sobrescribir con undefined en la posición que le indiquemos, no lo borra. Por eso en modo estricto no nos deja hacer delete.Cuando
+
+var arreglo = [];
+
+arreglo[61] = true;
+
+Rellenará del 0 al 61 con undefined.
+
+
+Propiedades
+
+.length: funciona como esta propiedad con cualquier otro elemento.Propiedades
+
+Métodos
+
+.push(): dentro del paréntesis metemos el valor que queremos introducir en el array.
+
+.pop(): quita el último elemento del array. Si tenemos un array vacío y hacemos .pop() nos devuelve undefined.
+
+
+.shift(): elimina el primer elemento. Si sólo hay uno, lo dejará vacío  / undefined
+
+.splice(): le damos dos parámetros: desde donde cortamos y cuantos cortamos. en el caso .splice(3,1): se irá a la posición 3 y quitará 1. Es un modificador, por lo que cambiará el array
+, si queremos capturar ese valor, lo declaramos en una variable, pero si no queremos capturarlo, no es necesario.
+
+.map(): nos permite hacer una función por cada uno de los elementos de un array sin necesidad de hacer un bucle.
+
+.isArray(): es simplemente para saber si algo es o no un array.
+
+.concat(): se puede concatenar dos arrays. 
+
+Para entrar en un array dentro de otro array:
+
+anidandoArrays = [1,2,3,4,[5,6,6], 8]
+
+anidandoArrays[4][1]
