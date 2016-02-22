@@ -2,7 +2,10 @@
 
 2 - ¿Que fecha será dentro de 30 días?
 ```javascript
-    // Tu solución
+	var ahora = new Date();
+	console.log("Hoy es " + ahora.toLocaleString());
+	ahora.setDate(ahora.getDate() + 30);
+	console.log("En 30 días será " + ahora.toLocaleString());
 ```
 
 3 - ¿Cuantas horas han pasado desde que emepezó este curso? y... ¿en días?
@@ -10,7 +13,7 @@
     // Tu solución
 ```
 
-4 - ¿Cuantos milisengundos quean para terminar el curso? y... ¿en horas o días?
+4 - ¿Cuantos milisengundos quedan para terminar el curso? y... ¿en horas o días?
 ```javascript
     // Tu solución
 ```
@@ -407,7 +410,7 @@ console.log('  Fictizia '.trim()); // 'Fictizia'
 
 **Ejercicios**
 
-1 - Diseña un algoritmo que cuente las veces que aparece una determinada letra en una frase que introduciremos por teclado.
+1 - Diseña un algoritmo que cuente las veces que aparece una determinada letra en una frase.
 
 ```javascript
     // Tu solución
