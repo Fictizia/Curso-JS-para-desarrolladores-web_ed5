@@ -1,5 +1,57 @@
 # Clase 8
 
+**Truco**
+
+Usar getters para modificar fechas (días, meses, etc...)
+
+Nota: Partiendo del ejemplo de [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setDate)
+
+- sin *getters*
+```javascript
+	var theBigDay = new Date(1962, 6, 7);
+	theBigDay.toLocaleString(); // 6/7/1962 23:00:00
+	
+	var theBigDay = new Date(1962, 6, 7);
+	theBigDay.setDate(24);
+	theBigDay.toLocaleString() // 23/7/1962 23:00:00
+	
+	var theBigDay = new Date(1962, 6, 7);
+	theBigDay.setDate(32);
+	theBigDay.toLocaleString() // 31/7/1962 23:00:00
+	
+	var theBigDay = new Date(1962, 6, 7);
+	theBigDay.setDate(22);
+	theBigDay.toLocaleString() // 21/7/1962 23:00:00
+	
+	var theBigDay = new Date(1962, 6, 7);
+	theBigDay.setDate(22 + 32 +24);
+	theBigDay.toLocaleString() // 15/9/1962 23:00:00
+```
+
+- con *getters* 
+```javascript
+	var theBigDay = new Date(1962, 6, 7);
+	theBigDay.toLocaleString(); // 6/7/1962 23:00:00
+	
+	var theBigDay = new Date(1962, 6, 7);
+	theBigDay.setDate(theBigDay.getDate() + 24);  
+	theBigDay.toLocaleString(); // 30/7/1962 23:00:00
+	
+	var theBigDay = new Date(1962, 6, 7);
+	theBigDay.setDate(theBigDay.getDate() + 32);
+	theBigDay.toLocaleString(); // 7/8/1962 23:00:00
+	
+	var theBigDay = new Date(1962, 6, 7);
+	theBigDay.setDate(theBigDay.getDate() + 22);
+	theBigDay.toLocaleString(); // 28/7/1962 23:00:00
+	
+	var theBigDay = new Date(1962, 6, 7);
+	theBigDay.setDate(theBigDay.getDate() + 22 + 32 + 24);
+	theBigDay.toLocaleString(); // 22/9/1962 23:00:00
+```
+
+
+
 2 - ¿Que fecha será dentro de 30 días?
 ```javascript
 	var ahora = new Date();
