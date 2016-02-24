@@ -587,7 +587,7 @@ Paso 4 - Creamos varios métodos para gestionar a los productos y sus necesidade
 
 Paso 5 - Ahora podemos agregar los métodos para agregar, retirar y resetear saldo de los usuarios.
 
-Importante:
+- Importante:
 	- Los saldos jamas pueden ser negativos.
 
 ```javascript
@@ -596,7 +596,7 @@ Importante:
 
 Paso 6 - Ahora podemos agregar el método para saber la disponibilidad de stock
 
-Importante:
+- Importante:
 	- Es necesaria clave (adminsitrador)
 	- Debemos saber las existencias
 	- Debemos saber que productos estan disponibles y cuales no.
