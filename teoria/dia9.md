@@ -51,7 +51,21 @@
 - Opcional: Ordena los números pares e impares en sus respectivos arrays
 
 ```javascript
-	// Tu solución
+	var array1 = [], arrayPares = [], arrayImpares = [];
+	
+	for (var i = 0; i<100; i++){
+		array1.push(Math.floor((Math.random() * 6) + 1));
+		
+		if(array1[i] % 2 !== 0){
+			arrayImpares[i] = array1[i];
+		} else {
+			arrayPares.push(array1[i]);
+		}
+	}
+	
+	// Opcional
+	arrayPares = arrayPares.sort();
+	arrayImpares = arrayImpares.sort();
 ```
 
 4 - Vamos a gestionar la lista de asistentes de un evento. 
