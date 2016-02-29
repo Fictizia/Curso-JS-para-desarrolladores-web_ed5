@@ -264,59 +264,58 @@ function consultarSaldo ( usuario, password ) {
 ```javascript
 // Agregar un cliente
 function agregarCliente ( nombre, usuario, password, tipoUsuario, presupuesto, passwordAdmin ) {
-  
- 
-  var passwordAcceso = 'ficticiaMola';
+
+
+  var passwordAcceso = 'fictiziaMola';
   var usuarioExiste = false;
 
-  
+
   // Comprobamos que tenga permiso de Administrador para dar de alta un nuevo usuario
-  
+
   if ( passwordAcceso === passwordAdmin ) {
-    
+
     // Comprobamos que el usuario a dar de alta no exista previamente en el sistema
     for ( var i=0; i<clientes.length; i++  ) {
-  
+
       if ( clientes[i].usuario === usuario ) {
-       
+
         usuarioExiste = true;
         console.warn('Este usuario ya existe en el sistema');
         break;
-        
+
       }
-    
+
     }
-    
+
     if ( !usuarioExiste ) {
-    
+
       // El usuario no existe en el sistema. Creamos un nuevo usuario con los datos proporcionados
       var oCliente = new Cliente (nombre, usuario, password, tipoUsuario, presupuesto );
-  
+
       clientes.push(oCliente);
       console.info('Nuevo usuario dado de alta en el sistema');
     }
-  
+
   }
-  
- 
+
+
   else {
-   console.log(usuarioExiste);
     console.warn('Únicamente el adminstrador tiene permiso para añadir nuevos usuarios al sistema.');
   }
-  
+
 
 }
 	
 ```
 
 ```javascript
+
 // Eliminar un cliente
 function eliminarCliente ( usuario, passwordAdmin ) {
   
  
   var passwordAcceso = 'fictiziaMola';
   var usuarioExiste = false;
-  var idUsuario;
   
   
   // Comprobamos que tenga permiso de Administrador para dar de alta un nuevo usuario
@@ -328,25 +327,19 @@ function eliminarCliente ( usuario, passwordAdmin ) {
   
       if ( clientes[i].usuario === usuario ) {
        
-        // Guardamos el id delUsuario a eliminar 
+         
+        // Eliminamos el cliente del sistema y actualizamos la lista de clientes
        
-        idUsuario = i; 
         usuarioExiste = true;
+        console.warn('El usuario \"' + clientes[i].usuario + '\" ha sido eliminado del sistema');
+        clientes.splice( i, 1);
+        break;
         
       }
     
     }
     
-    if (usuarioExiste) {
-     
-      // Eliminamos el cliente del sistema y actualizamos la lista de clientes
-       
-      clientes = clientes.splice( idUsuario, 1 ); 
-      console.warn('El usuario \"' + clientes[idUsuario].usuario + '\" ha sido eliminado del sistema');
-    
-    }
-    
-    else {
+    if (!usuarioExiste) {
     
       // El usuario no existe en el sistema. Creamos un nuevo usuario con los datos proporcionados
      	console.warn('El usuario no existe en el sistema');
@@ -363,8 +356,6 @@ function eliminarCliente ( usuario, passwordAdmin ) {
   
 
 }
-
-
 
 
 ```
