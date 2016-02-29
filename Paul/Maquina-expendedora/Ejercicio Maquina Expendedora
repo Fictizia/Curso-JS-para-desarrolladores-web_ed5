@@ -1,0 +1,20 @@
+// Maquina expendedora
+
+// paso 1
+
+var miObjeto = "Maquina Expendedora";
+
+var productos = ["zumo", "galletas", "patatas"];
+
+var clientes = ["Laura", "Marcos"]
+
+// paso 2
+
+  function clientes (nombre, usuario, password, tipoUsuario, presupuesto) {
+        clientes.nombre = nombre;
+        clientes.usuario = usuario;
+        clientes.password = password;
+        clientes.tipoUsario = tipoUsuario;
+        clientes.presupuesto = presupuesto;
+        }
+    
