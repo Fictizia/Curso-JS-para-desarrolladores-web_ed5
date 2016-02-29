@@ -338,7 +338,7 @@ function eliminarCliente ( usuario, passwordAdmin ) {
       }
     
     }
-    
+     
     if (!usuarioExiste) {
     
       // El usuario no existe en el sistema. Creamos un nuevo usuario con los datos proporcionados
