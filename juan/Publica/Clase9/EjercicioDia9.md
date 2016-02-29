@@ -81,7 +81,7 @@ function addAsistenteEvento ( nombre ) {
   
   var asientoDesocupado = false;
   
-   	// Recorremos la lista buscando asientos desocupados
+   	// Recorremos la lista de asistentes al evento buscando asientos desocupados
     for ( var i= 0; i<lista.length; i++ ) {
      
       if ( lista[i] === undefined ) {
@@ -148,9 +148,6 @@ addAsistenteEvento ('Pedro');
 console.info('Asistentes al evento: ' + lista);
 
 
-
-
-
 ```
 
 
@@ -175,7 +172,12 @@ Paso 1 - Creamos los primeros objetos básicos:
 - Clientes (Array)
 
 ```javascript
-	// Tu solución
+
+var oMaquinaExpendedora = { }
+var productos = ['patatas', 'agua', 'galletas', 'chocolatinas', 'caramelos' ];
+var clientes = [];
+
+
 ```
 
 Paso 2 - Creamos los primeros perfiles en el Array de clientes:
@@ -187,7 +189,29 @@ Paso 2 - Creamos los primeros perfiles en el Array de clientes:
     - Presupuesto
 
 ```javascript
-	// Tu solución
+
+// Función constructora del Objeto Cliente
+function Cliente( nombre, usuario, password, tipoUsuario, presupuesto ) {
+
+  this.nombre = nombre;
+  this.usuario = usuario;
+  this.password = password;
+  this.tipoUsuario = tipoUsuario;
+  this.presupuesto = presupuesto;
+}
+
+
+var oCliente1 = new Cliente('Juan', 'juan', 'p_juan', 'empleado', 10);
+var oCliente2 = new Cliente('Maria', 'maria', 'p_maria', 'empleado', 10);
+var oCliente3 = new Cliente('Elisa', 'elisa', 'p_elisa', 'empleado', 10);
+var oCliente4 = new Cliente('Cesar', 'cesar', 'p_cesar', 'jefe', 10);
+
+
+clientes.push(oCliente1);
+clientes.push(oCliente2);
+clientes.push(oCliente3);
+clientes.push(oCliente4);
+
 ```
 
 Paso 3 - Creamos varios métodos para gestionar a los clientes y sus necesidades
@@ -209,11 +233,145 @@ Paso 3 - Creamos varios métodos para gestionar a los clientes y sus necesidades
     - Protegeremos las funciones de gestión de usuarios con la contraseña *ficticiaMola*
 
 ```javascript
-	// Tu solución
+	
+// Consultar saldo de cliente
+function consultarSaldo ( usuario, password ) {
+	
+	var saldo;
+  
+  for ( var i=0; i<clientes.length; i++  ) {
+  
+    if ( clientes[i].usuario === usuario && clientes[i].password === password ) {
+       
+      saldo = clientes[i].presupuesto; 
+    	break;
+      
+    }
+    else
+    {
+     // El usuario no existe;
+      saldo = -1;
+    }
+    
+    
+  }
+  
+  return saldo
+ 
+}
 ```
 
-Paso 4 - Creamos varios métodos para gestionar a los productos y sus necesidades
+```javascript
+// Agregar un cliente
+function agregarCliente ( nombre, usuario, password, tipoUsuario, presupuesto, passwordAdmin ) {
+  
+ 
+  var passwordAcceso = 'ficticiaMola';
+  var usuarioExiste = false;
 
+  
+  // Comprobamos que tenga permiso de Administrador para dar de alta un nuevo usuario
+  
+  if ( passwordAcceso === passwordAdmin ) {
+    
+    // Comprobamos que el usuario a dar de alta no exista previamente en el sistema
+    for ( var i=0; i<clientes.length; i++  ) {
+  
+      if ( clientes[i].usuario === usuario ) {
+       
+        usuarioExiste = true;
+        console.warn('Este usuario ya existe en el sistema');
+        break;
+        
+      }
+    
+    }
+    
+    if ( !usuarioExiste ) {
+    
+      // El usuario no existe en el sistema. Creamos un nuevo usuario con los datos proporcionados
+      var oCliente = new Cliente (nombre, usuario, password, tipoUsuario, presupuesto );
+  
+      clientes.push(oCliente);
+      console.info('Nuevo usuario dado de alta en el sistema');
+    }
+  
+  }
+  
+ 
+  else {
+   console.log(usuarioExiste);
+    console.warn('Únicamente el adminstrador tiene permiso para añadir nuevos usuarios al sistema.');
+  }
+  
+
+}
+	
+```
+
+```javascript
+// Eliminar un cliente
+function eliminarCliente ( usuario, passwordAdmin ) {
+  
+ 
+  var passwordAcceso = 'fictiziaMola';
+  var usuarioExiste = false;
+  var idUsuario;
+  
+  
+  // Comprobamos que tenga permiso de Administrador para dar de alta un nuevo usuario
+  
+  if ( passwordAcceso === passwordAdmin ) {
+    
+    // Comprobamos que el usuario a dar de alta no exista previamente en el sistema
+    for ( var i=0; i<clientes.length; i++  ) {
+  
+      if ( clientes[i].usuario === usuario ) {
+       
+        // Guardamos el id delUsuario a eliminar 
+       
+        idUsuario = i; 
+        usuarioExiste = true;
+        
+      }
+    
+    }
+    
+    if (usuarioExiste) {
+     
+      // Eliminamos el cliente del sistema y actualizamos la lista de clientes
+       
+      clientes = clientes.splice( idUsuario, 1 ); 
+      console.warn('El usuario \"' + clientes[idUsuario].usuario + '\" ha sido eliminado del sistema');
+    
+    }
+    
+    else {
+    
+      // El usuario no existe en el sistema. Creamos un nuevo usuario con los datos proporcionados
+     	console.warn('El usuario no existe en el sistema');
+    }
+  
+  }
+  
+ 
+  
+  else {
+   console.log(usuarioExiste);
+    console.warn('Únicamente el adminstrador tiene permiso para añadir nuevos usuarios al sistema.');
+  }
+  
+
+}
+
+
+
+
+```
+
+
+Paso 4 - Creamos varios métodos para gestionar a los productos y sus necesidades
+ 
 - Creamos 5 productos que estarán disponibles a la venta 
 
 - Métodos:
