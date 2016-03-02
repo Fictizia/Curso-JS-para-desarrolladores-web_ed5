@@ -1,273 +1,226 @@
 # Clase 10
 
-### BOM (Browser Object Model)
 
-![DOM, BOM y JS](http://javascript.info/files/tutorial/browser/JSTop.png)
+### Scope
 
-**window.history**
-- propiedades:
+- Declaración y ejecución:
 ```javascript
-	history.length
+	var numero = 450;
+	var otroNumero = 23;
+
+	function sumaCuadrados (a, b) {
+		var numero = a;
+		var otroNumero = b;
+		var calculo = (numero*numero) + (otroNumero*otroNumero);
+		console.log("\"numero\" es \""+numero+"\", local");
+		console.log("\"otroNumero\" es \""+otroNumero+"\", local");
+	};
+
+	function verificarGlobales() {
+		console.log("\"numero\" es \""+numero+"\", global");
+		console.log("\"otroNumero\" es \""+otroNumero+"\", global");
+	};
 ```
-- Métodos:
+
+
+### Funciones Avanzadas
+
+- Anónimas (expresiones):
 ```javascript
-	// Ir atras
-	history.go(-1);
-	history.back();
-	
-	// Ir adelante
-	history.go(1);
-	history.forward();
+	var sumaCuadrados = function (a, b) {
+		return (a*a) + (b*b);
+	};
+    
+    console.log("El .name de sumaCuadrados es "+sumaCuadrados.name)
 ```
 
-**window.navigator**
-- Propiedades:
+- Funciones como dato:
 ```javascript
-	function conversorTiempo(segundos){
-		var fecha = new Date(segundos * 1000);
-		var hh = fecha.getUTCHours();
-		var mm = fecha.getUTCMinutes();
-		var ss = fecha.getSeconds();
+	function saludo () {
+		console.log("hola!");
+	};
 
-		if (hh < 10) {hh = "0"+hh;}
-		if (mm < 10) {mm = "0"+mm;}
-		if (ss < 10) {ss = "0"+ss;}
+	function lanzar (funcion){
+		funcion();
+	};
+```
 
-		return hh+":"+mm+":"+ss;
+- Funciones anónimas autoejecutables:
+```javascript
+	(function() {
+		console.log("hola Amigo/a")
+
+	})(); //ex:Jquery
+```
+
+- Funciones anónimas con parámetros:
+```javascript
+	( function(quien){
+	   console.log("hola " + quien);
+	})("Amigo/a");
+```
+
+- Función que devuelve una función anónima:
+	- Asignando una variable:
+    ```javascript
+	function saludo(quien){
+	        return function(){
+	                alert("hola " + quien);
+	        }
 	}
+	var saluda = saludo("Amigo/a");
+	saluda();
+    ```
 
-	function informacionSistema(){
-		console.log("appCodeName:", window.navigator.appCodeName);
-		console.log("appName:", window.navigator.appName);
-		console.log("appVersion:", window.navigator.appVersion);
-		console.log("platform:", window.navigator.platform);
-		console.log("product:", window.navigator.product);
-		console.log("userAgent:", window.navigator.userAgent);
-		console.log("javaEnabled:", window.navigator.javaEnabled());
-		console.log("language (used):", window.navigator.language);
-		console.log("language (support):", window.navigator.languages);
-		console.log("conectado a internet?", window.navigator.onLine);
-		console.log("mimeTypes:",window.navigator.mimeTypes);
-		console.log("Plugins:", navigator.plugins);
+	- Sin asignar una variable:
+    ```javascript
+	function saludo(quien){
+	        return function(){
+	                alert("hola " + quien);
+	        }
+	}
+	saludo("Amigo/a")();
+    ```
 
-		navigator.getBattery().then(function(bateria){
-			console.log("Batería cargando?", bateria.charging)
-			
-			if(bateria.charging){
-				console.log("Tiempo de carga:", bateria.chargingTime)
+### Anidación de funciones
+
+- Anidación:
+```javascript
+	function saludar(quien){
+	        function alertasaludo(){
+	                console.log("hola " +  quien);
+	        }
+	        return alertasaludo;
+	}
+	var saluda = saludar("Amigo/a");
+	saluda();
+```
+
+- Anidación:
+```javascript
+	function saludar(quien){
+	        function alertasaludo(){
+	                console.log("hola " +  quien);
+	        }
+	        return alertasaludo;
+	}
+	saludar("Amigo/a")();
+```
+    
+### Recursión
+
+- Calcular el [factorial](https://www.wikiwand.com/es/Factorial).
+```javascript
+		function factorial(n){
+			if(n <= 1){
+		    	return 1
+		  	} else {
+		    	return n * factorial(n-1)
 			}
-			console.log("Batería %:", bateria.level*100)
-			console.log("Tiempo restante:", conversorTiempo(bateria.dischargingTime))
-
-		});
-
-	}
-```
-
-**window.screen**
-- Propiedades:
-```javascript
-	function informacionPantalla(){
-		console.log("availTop:", window.screen.availTop);
-		console.log("availLeft:", window.screen.availLeft);
-		console.log("availHeight:", window.screen.availHeight);
-		console.log("availWidth:", window.screen.availWidth);
-		console.log("colorDepth:", window.screen.colorDepth);
-		console.log("height:", window.screen.height);
-		console.log("left:", window.screen.left);
-		console.log("orientation:", window.screen.orientation);
-		console.log("pixelDepth:", window.screen.pixelDepth);
-		console.log("top:", window.screen.top);
-		console.log("width:", window.screen.width);
-	}
-```
-
-
-
-**Window.location y Document.location**
-
-- Propiedades:
-```javascript
-	function informacionEnlace(url){
-	
-		var enlace = document.createElement('a');
-		enlace.href = url || 'https://fictizia.com:3000/formacion/curso_javascript?q=JS#contenido-curso';
+		}
 		
-		console.log("href:" ,enlace.href);
-		console.log("protocol:", enlace.protocol);
-		console.log("host:", enlace.host);
-		console.log("hostname:", enlace.hostname);
-		console.log("port:", enlace.port);
-		console.log("pathname:", enlace.pathname);
-		console.log("search:", enlace.search);
-		console.log("hash:", enlace.hash);
-		console.log("origin:", enlace.origin);
+		factorial(0); // n! = 1
+		factorial(1); // n! = 1
+		factorial(2); // n! = 2
+		factorial(3); // n! = 6 (3*2*1)
+		factorial(4); // n! = 24 (4*3*2*1)
+		factorial(5); // n! = 120 (5*4*3*2*1)
+		factorial(6); // n! = 720 (...)
+		// ...
+```
+
+
+### Callbacks
+
+> En programación de computadoras, una devolución de llamada o retrollamada (en inglés: callback) es una función "A" que se usa como argumento de otra función "B". Cuando se llama a "B", ésta ejecuta "A". Para conseguirlo, usualmente lo que se pasa a "B" es el puntero a "A".
+> [Callbacks en Wikiwand](https://www.wikiwand.com/es/Callback_(inform%C3%A1tica))
+
+- Ejemplo condensado:
+```javascript
+	var quieroCallback = function(parametro, callback){
+	    if ((callback) && (typeof callback === 'function')){
+	        callback(parametro);
+	    }
+	    else
+	        console.log(parametro, callback);
 	}
+	 
+	quieroCallback('a', 'b');
+	 
+	quieroCallback('a', function(val){
+	    console.log(val);
+	});
 ```
 
-- Métodos:
-	- .assign() *Carga una página nueva*
-	```javascript
-		document.location.assign('http://fictizia.com/formacion/curso_javascript');
-	```
-	- .reload() *Recarga*
-	```javascript
-		document.location.reload(); // Recarga
-		document.location.reload(true); // Recarga sin usar el cache
-		document.location.reload(forcedReload); // Recarga SIEMPRE sin usar el cache
-	```
-	- .replace() *Carga una página nueva, sustituyendo la actual en el historial*
-	```javascript
-		document.location.replace('http://fictizia.com/formacion/curso_javascript');
-	```
-	- .toString() *Devuelve el href como cadena*
-	```javascript
-		var enlace = document.createElement('a');
-		enlace.href = 'http://fictizia.com/formacion/curso_javascrip';
-		
-		console.log("toString:" ,enlace.toString());
-	```
 
-
-### DOM
-
-- **[DOM - Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)**
-- **[Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)**
-- **[Node](https://developer.mozilla.org/en-US/docs/Web/API/Node)**
-- **[NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList)**
-
-
-IMPORTANTE:  Los retornos de *Node.childNodes* y *document.querySelectorAll* - NO son arrays. 
-
+- Ejemplo con Jquery:
 ```javascript
-
-var listaDivs = document.querySelectorAll('div');
-
-// Iteración
-for (var i = 0; i < listaDivs.length; ++i) {
-  var elemento = listaDivs[i];
-  console.log("Elemento: ", elemento);
-}
-
-// Conversión
-var listaDivsArray = Array.prototype.slice.call(listaDivs);
+    $('#elemento').fadeIn('slow', function() {
+    	// código del callback
+	});
 ```
 
-### Estilos con Javascript
+
+- Otro ejemplo:
 ```javascript
-// getter
-window.getComputedStyle(document.getElementById("id"));
-window.getComputedStyle(document.body).getPropertyValue('display');
-// setter
-document.body.style.display="none";
-document.getElementById("id").style.display="none";
+    function comerSandwich(elemento1, elemento2, callback) {
+	    console.info('ñam ñam... empiezo con el sándwich.\n\nMe gusta porque tiene tiene ' + elemento1 + ', ' + elemento2);
+	    callback();
+	}
+
+	comerSandwich('jamón', 'queso', function() {
+	    console.info('Ya terminé...');
+	});
 ```
 
 
-### Selectors
-
-- [Soporte](http://caniuse.com/#search=querySelector)
-
-- Convencional:
-    - getElementById():
-    ```javascript
-        // <tag id = "x" >
-        document.getElementById("id");
-    ```
-    
-    - getElementsByName():
-    ```javascript
-        // <tag name = "x" >
-        document.getElementsByName("fname");
-    ```
-    
-    - getElementsByTagName():
-    ```javascript
-        // <tag >
-        document.getElementsByTagName("input");
-    ```
-
-- Selectores CSS3:
-
-    - URL que empieza con "javascript:"
-    ```javascript
-        a[href^="javascript:"] {color:blue;}
-    ```
-    
-    - URL que contiene "google.es"
-    ```javascript
-        a[href*="google.es"] {color:orange;}
-    ```
-    
-    - URL que termina con ".pdf"
-    ```javascript
-        a[href$=".pdf"] {color:red;}
-    ```
-
-
-- Comprobando disponibilidad del API:
+- Ejemplo con Callback opcional:
 ```javascript
-// op.1 - Positivo
+    function comerSandwich(elemento1, elemento2, callback) {
+	    console.info('ñam ñam... empiezo con el sándwich.\n\nMe gusta porque tiene tiene ' + elemento1 + ', ' + elemento2);
+	    
+	    if (callback) {
+	        callback();
+	    }
 
-    if( document.querySelector && document.querySelectorAll ){
-        console.info("querySelector() y querySelectorAll() estan soportados!!")
-    } else {
-        console.warn("querySelector() y querySelectorAll() no estan soportados!!")
-    }
-// op.2 - Negativo
+	}
 
-    if( typeof document.querySelector !== "function" && typeof document.querySelectorAll !== "function" ){
-        console.warn("querySelector() y querySelectorAll() no estan soportados!!")
-    } else {
-        console.info("querySelector() y querySelectorAll() estan soportados!!")
-    }
-
+	comerSandwich('jamón', 'queso');
 ```
 
-- querySelector():
-Devuelve el primer elemento que coincida con el selector 
 
-```html
-    <div id="miDiv">
-        <span id="miId5" class="miClase" title="cinco"></span>
-        <span id="miId4" class="miClase" title="cuatro"></span>
-        <span id="miId3" class="miClase" title="tres"></span>
-        <span id="miId2" class="miClase" title="dos"></span>
-        <span id="miId1" class="miClase" title="uno"></span>
-    </div> 
-```
-
+- Sanitizar el Callback:
 ```javascript
-    document.getElementById('miId1').title // uno
-    document.querySelector('#miDiv .miClase').title // cinco
-    document.querySelector('#miDiv #miId1.miClase').title // uno
-    document.querySelector('#miDiv .inventado').title // ERROR -> undefined
-    document.querySelector('#miDiv .miClase[title^=u]').title // uno
+    function comerSandwich(elemento1, elemento2, callback) {
+	    console.info('ñam ñam... empiezo con el sándwich.\n\nMe gusta porque tiene tiene ' + elemento1 + ', ' + elemento2);
+	    
+	    if (callback && typeof(callback) === "function") {
+	        callback();
+	    }
+
+	}
+
+	comerSandwich('jamón', 'queso');
 ```
 
-- querySelectorAll():
-Devuelve todos los elementos que coincida con el selector en un array
+
+### Asincronía
 ```javascript
-    document.querySelectorAll('#miDiv .miClase') // [<span id="miId5" ... ]
-    document.querySelectorAll('p') // todos los parrafos
-    document.querySelectorAll('div, img') // todos los divs e imágenes
-    document.querySelectorAll('a > img') // todos las imágenes contenidas en enlaces
-```
+    function comerSandwich(elemento1, elemento2, callback) {
+	    console.info('ñam ñam... empiezo con el sándwich.\n\nMe gusta porque tiene tiene ' + elemento1 + ', ' + elemento2);
+	  
+		setTimeout(alarma, 5000);
+		function alarma(){
+			console.log("ring! ring!.. pasaron los 5 segundos!");
+		};
 
-### Trabajar sin JQuery
+	  
+	    if (callback && typeof(callback) === "function") {
+	        callback();
+	    }
+	}
 
-- **[You Might Not Need Jquery](http://youmightnotneedjquery.com/)**
-- **[You Might Not Need Jquery(en GitHub)](https://github.com/HubSpot/youmightnotneedjquery)**
-
-**Ejercicios:**
-
-
-**1 -**  Diseña un algoritmo que sustituya todas las imágenes de las entradas de [Genbeta](http://www.genbeta.com/) por [imágenes dummy de gatitos](https://placekitten.com/).
-```javascript
-	// Tu solución
-```
-
-**2 -** Diseña un algoritmo que agrupe todos los titulares, sus autores y categorias dentro de [Genbeta:dev](http://www.genbetadev.com/) y luego vacíe el html para cargar una lista hecha por nosotros con la información previamente recolectada.
-```javascript
-	// Tu solución
+	comerSandwich('jamón', 'queso', function() { 
+	    console.log('Ya terminé...');
+	});
 ```
