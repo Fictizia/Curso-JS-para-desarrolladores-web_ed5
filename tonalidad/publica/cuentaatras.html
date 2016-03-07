@@ -47,33 +47,30 @@ function darHora() {
     var segundos = Math.floor( (diferencia / 1000)%60);
     var horas = Math.floor( diferencia / ( 60 * 60 * 1000 )%24 );
     var minutos = Math.floor( diferencia / ( 60 * 1000 )%60 );
-    var dias = Math.floor( diferencia / ( 24 * 60 * 60 * 1000 ) );
+    var dias = Math.floor( diferencia / ( 1000 * 60 * 60 * 24 ) );
 
-    console.log("Quedan " + diferencia +"ms");
+    /*console.log("Quedan " + diferencia +"ms");
     console.log("Quedan "+ segundos +" segundos.");
     console.log("Quedan "+ minutos +" minutos.");
     console.info("Quedan "+ horas +" horas.");
-    console.info("Quedan "+ dias +" días.");
-
+    console.info("Quedan "+ dias +" días.");*/
+ 
+   if(segundos < 10){
+        segundos = "0" + segundos; 
+    }
+     if(minutos < 10){
+        minutos = "0" + minutos; 
+    }
 
 document.getElementById("dias").innerHTML = '<h3>DIAS</h3><br><h1>' + dias + '</h1>';
-document.getElementById("horas").innerHTML = '<h3>HORAS</h3><br><h1>' + horas + '</h1>';;
-document.getElementById("minutos").innerHTML = '<h3>MINUTOS</h3><br><h1>' + minutos + '</h1>';;
-document.getElementById("segundos").innerHTML = '<h3>SEGUNDOS</h3><br><h1>' + segundos + '</h1>';;
-
+document.getElementById("horas").innerHTML = '<h3>HORAS</h3><br><h1>' + horas + '</h1>';
+document.getElementById("minutos").innerHTML = '<h3>MINUTOS</h3><br><h1>' + minutos + '</h1>';
+document.getElementById("segundos").innerHTML = '<h3>SEGUNDOS</h3><br><h1>' + segundos + '</h1>';
 
 }
 
-
-
 var myVar = setInterval(function(){ darHora() }, 1000);
-
-
-
-
 setInterval(darHora(),1000);
-
-
 
 </script>
 
