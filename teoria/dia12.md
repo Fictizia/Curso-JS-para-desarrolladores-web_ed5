@@ -16,9 +16,7 @@ Objetivos Adicionales:
 
 Nota: Podría ser muy útil usar *setTimeout* para lanzar una función cada cierto tiempo.
 
-```javascript
-	// Tu solución
-```
+- [Solucion](https://github.com/UlisesGascon/curso-js-web-developers-012016/blob/master/otros/cuenta-atras.html)
 
 ### Testing
 
