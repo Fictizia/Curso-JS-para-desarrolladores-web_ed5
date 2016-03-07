@@ -1,5 +1,12 @@
 # Clase 12
 
+### IMPORTANTE
+
+![Portada_M_Vidal](http://www.fictizia.com/assets/imgs/blog/articles/26/sketch-masterclass-Marcos-Vidal.jpg)
+
+**[Masterclass de Marcos Vidal: "Diseñando interfaces con Sketch: Procesos, plugins y trucos"](http://www.fictizia.com/actualidad/sketch-masterclass-Marcos-Vidal)**
+En Fictizia, el sábado 16 de Abril a las 10.30.
+
 **Ejercicios**
 
 1 - Realiza una pagina web que muestre la cuenta atrás para terminar el curso en días, horas, minutos y segundos.
