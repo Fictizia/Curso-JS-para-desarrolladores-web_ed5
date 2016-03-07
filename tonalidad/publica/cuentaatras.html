@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Cuenta atrás</title>
+</head>
+
+
+<style type="text/css">
+body {
+    font-family: sans-serif;
+}
+
+.container{
+    width: 100%;
+}
+.wrapper {
+    margin: 0 auto;
+    max-width:1000px;
+}
+.cuad {
+    margin: 0 auto;
+
+    background-color: black;
+    color: white; 
+    float: left;
+    padding:60px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+h1, h3 {
+    text-align: center;
+}
+    
+</style>
+
+<body>
+<script type="text/javascript">
+
+function darHora() {
+    var fin = new Date(2016, 2, 16, 22, 0, 0);
+    console.log("Fecha de finalización: " + fin.toLocaleString());
+    var ahora = new Date();
+    console.log("Fecha actual: " + ahora.toLocaleString());
+    var diferencia = fin - ahora;
+
+    var segundos = Math.floor( (diferencia / 1000)%60);
+    var horas = Math.floor( diferencia / ( 60 * 60 * 1000 )%24 );
+    var minutos = Math.floor( diferencia / ( 60 * 1000 )%60 );
+    var dias = Math.floor( diferencia / ( 24 * 60 * 60 * 1000 ) );
+
+    console.log("Quedan " + diferencia +"ms");
+    console.log("Quedan "+ segundos +" segundos.");
+    console.log("Quedan "+ minutos +" minutos.");
+    console.info("Quedan "+ horas +" horas.");
+    console.info("Quedan "+ dias +" días.");
+
+
+document.getElementById("dias").innerHTML = '<h3>DIAS</h3><br><h1>' + dias + '</h1>';
+document.getElementById("horas").innerHTML = '<h3>HORAS</h3><br><h1>' + horas + '</h1>';;
+document.getElementById("minutos").innerHTML = '<h3>MINUTOS</h3><br><h1>' + minutos + '</h1>';;
+document.getElementById("segundos").innerHTML = '<h3>SEGUNDOS</h3><br><h1>' + segundos + '</h1>';;
+
+
+}
+
+
+
+var myVar = setInterval(function(){ darHora() }, 1000);
+
+
+
+
+setInterval(darHora(),1000);
+
+
+
+</script>
+
+<div class="container">
+    <div class="wrapper">
+        <div id="dias" class="cuad">DIAS</div>
+        <div id="horas" class="cuad">HORAS</div>
+        <div id="minutos" class="cuad">MINUTOS</div>
+        <div id="segundos" class="cuad">SEGUNDOS</div>
+    </div>
+</div>
+ 
+</body>
+</html>
