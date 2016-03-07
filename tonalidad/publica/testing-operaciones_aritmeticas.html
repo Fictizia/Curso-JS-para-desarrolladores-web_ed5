@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Testing operaciones aritméticas</title>
+      <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.20.0.css">
+</head>
+
+<style type="text/css">    
+</style>
+
+<body>
+
+<script src="https://code.jquery.com/qunit/qunit-1.20.0.js"></script>
+
+<script>
+
+    function calcularVarios (p1, p2){
+      return (p1 + p2);
+      return (p1 - p2);
+      return (p1 * p2);
+      return (p1 / p2);
+    }
+
+    test("test de la funcion calcularVarios(p1, p2)", function() {
+        equal(calcularVarios( 1, 2), 3, "1 + 2 = 3" );
+        notEqual(calcularVarios( "2", 2), "22", " 2(cadena) + 2 != 22(cadena) ");
+
+        equal(calcularVarios( 2, 1), 1, "2 - 1 = 1" );
+        notEqual(calcularVarios( 2, 1), "1", " 2(cadena) - 2 != 22(cadena) ");
+
+        equal(calcularVarios( 2, 1), 2, "2 * 1 = 1" );
+        notEqual(calcularVarios( 2, 1), "NaN", " 2(cadena) * 2 != 22(cadena) ");
+
+        equal(calcularVarios( 4, 2), 2, "2 - 1 = 1" );
+        notEqual(calcularVarios( 4, 2), "2", " 2(cadena) / 2 != 22(cadena) ");
+
+    });
+
+</script>
+
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+ 
+</body>
+</html>
