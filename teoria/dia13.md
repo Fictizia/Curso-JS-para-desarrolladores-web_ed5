@@ -598,3 +598,7 @@ Nota: http://openweathermap.org te será de gran ayuda, busca la solución al er
 	// Tu solución
 ```
 
+**Concepto:**
+
+![buenos_dias_madrid.png](../otros/buenos_dias_madrid.png)
+
