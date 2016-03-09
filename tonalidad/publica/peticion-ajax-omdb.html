@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Petición AJAX OMDB</title>
+</head>
+
+<style type="text/css">  
+
+h1 {
+  font-size: 2.5em;
+}
+p {
+  font-size: 1.5em;
+}  
+</style>
+
+<body>
+
+<script>
+
+ function peticionAjax(url) {
+        var xmlHttp = new XMLHttpRequest();
+
+        xmlHttp.onreadystatechange = function() {
+
+            if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+                var datos = (JSON.parse(xmlHttp.responseText));
+                var contenido ="";
+                contenido += "<h1>"+datos.Title+"</h1>";
+                contenido += "<p>"+datos.Plot+ "</p>";
+                document.body.innerHTML = contenido;
+            } else if (xmlHttp.readyState === 4 && xmlHttp.status === 404) {
+                console.error("ERROR! 404");
+                console.info(JSON.parse(xmlHttp.responseText));
+            }
+        };
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send();
+    }
+
+    peticionAjax("http://www.omdbapi.com/?t=matrix&y=1999&plot=full&r=json");
+
+
+    
+
+</script>
+
+
+ 
+</body>
+</html>
