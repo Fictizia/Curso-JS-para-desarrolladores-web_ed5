@@ -501,14 +501,60 @@ Nota: http://openweathermap.org te será de gran ayuda, busca la solución al er
 
 
 ```javascript
-	// Tu solución
+	var contenido = "";
+  	function temperaturaCiudad (ciudad) {
+        var xmlHttp = new XMLHttpRequest(),
+        APIKey = '', // Puedes usar una cuenta gratuita -> http://openweathermap.org/price
+        cURL = 'http://api.openweathermap.org/data/2.5/weather?q='+ciudad+'&APPID='+APIKey;
+    
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+                var datos = (JSON.parse(xmlHttp.responseText));
+	              contenido += "<h1>"+datos.name+"</h1>"
+	              contenido += "<p>"+datos.weather[0].description+"</p>"
+	              document.body.innerHTML = contenido;
+            } else if (xmlHttp.readyState === 4 && xmlHttp.status === 404) {
+                datos = JSON.parse(xmlHttp.responseText);
+                console.error("ERROR! 404");
+                console.info(datos);
+            }
+        };
+    
+        xmlHttp.open( "GET", cURL, true );
+        xmlHttp.send();
+    }
+    
+    temperaturaCiudad("Madrid");
+    temperaturaCiudad("Barcelona");
+    temperaturaCiudad("Valencia");
 ```
 
 3 - Jugando con [datos abiertos](http://datos.gob.es/), saquemos los detalles de todos los cuadros eléctricos de Gijón por consola.
 
 
 ```javascript
-	// Tu solución
+    function peticionAjax (url) {
+	  var xmlHttp = new XMLHttpRequest();
+	
+	            xmlHttp.onreadystatechange = function () {
+	
+	                if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+	                    var datos = (JSON.parse(xmlHttp.responseText));
+                        console.log(datos)
+	                } else if (xmlHttp.readyState === 4 && xmlHttp.status === 404) {
+	                    console.error("ERROR! 404");
+	                    console.info(JSON.parse(xmlHttp.responseText));
+	                }
+	            };
+	
+	            xmlHttp.open( "GET", url, true );
+	            xmlHttp.send();
+	}
+    
+    
+    // Utilizamos un proxy como http://crossorigin.me para solucionar el problema de CORS	
+	peticionAjax("http://crossorigin.me/http://opendata.gijon.es/descargar.php?id=163&tipo=JSON");
+
 ```
 
 ```
@@ -524,73 +570,6 @@ Nota: http://openweathermap.org te será de gran ayuda, busca la solución al er
 // ...
 ```
 
-
-![NYT_logo](http://cdn1.theodysseyonline.com/files/2015/11/24/635839344246506130415536034_NYTimes-banner.jpg)
-
-**4 -** Utilizando la [API del NYTimes](http://developer.nytimes.com/docs) vamos a crear una web que nos muestre los libros más vendidos de la [categoria Hardcover Fiction](http://www.nytimes.com/best-sellers-books/2016-01-17/hardcover-fiction/list.html)
-**Especificaciones:**
-- [Consigue tus credenciales dandote de alta](https://myaccount.nytimes.com/auth/login?URI=http:/developer.nytimes.com/login/external)
-- Debes incluir una animación mientras esperamos la carga del contenido.
-- Los libros deben estar organizados según el orden de la lista oficial
-- Debes incluir la carátula del libro
-- Debes incluir la cantidad de semanas que lleva en la lista
-- Debes incluir la descripción
-- Debes incluir el titulo y la posición que ocupa en la lista ( #1 titulo.... #2 titulo....)
-- Debes incluir el link para poder comprar el libro en amazon (debe abrirse en otra pestaña)
-
-**Trucos:**
-- Mira en detalle la [documentación oficial](http://developer.nytimes.com/docs)
-- Usa el *[Books API](http://developer.nytimes.com/docs/books_api/)*
-
-```javascript
-	// Tu solución
-```
-
-**5 -** Refactorizaremos el ejercicio anterior para ofrecer al cliente un dashboard con la listas disponibles en *[Books API](http://developer.nytimes.com/docs/books_api/)*.
-**Especificaciones:**
-- Debes incluir una animación mientras esperamos la carga del contenido.
-- Al cargar la web deben de aparecer todas las listas con los siguientes datos:
-	- Nombre completo de la lista
-	- La fecha del libro más antiguo en la lista
-	- La fecha del libro ultimo incorporado
-	- La frecuencia de actualización
-	- Un link para poder cargar la lista.
-- Al pinchar en el link de una lista especifica el DOM debe cambiar e incluir los siguientes datos:
-- Un bontón para *volver atras* y recargar la disposición anterior
-- Los libros deben estar organizados según el orden de la lista oficial
-- Debes incluir la carátula del libro
-- Debes incluir la cantidad de semanas que lleva en la lista
-- Debes incluir la descripción
-- Debes incluir el titulo y la posición que ocupa en la lista ( #1 titulo.... #2 titulo....)
-- Debes incluir el link para poder comprar el libro en amazon (debe abrirse en otra pestaña)
-
-```javascript
-	// Tu solución
-```
-
-![Spotify_logo](http://lh5.ggpht.com/-_6vAFJGk9tI/UViPTo9Gt1I/AAAAAAAAX6g/3_u3_Jq68fM/image%25255B8%25255D.png?imgmax=800)
-
-**6 -** Usando el [API de Spotify](https://developer.spotify.com/web-api/) crearemos una aplicación que nos permita buscar artistas similares a un artista que el usuario introduzca.
-**Especificaciones:**
-- Debes incluir una animación mientras esperamos la carga del contenido.
-- Debes tener en cuenta todos los posibles errores (no existe el artista, no conecta con el api, etc...) para informar al usuario.
-- En la respuesta debes incluir:
-	- Un número finito de artistas similares
-	- El nombre del artista
-	- Una imagen del artista
-	- El número de seguidores
-	- Su popularidad
-
-
-**Trucos:**
-- Consulta todos los detalles sobre las rutas de la API en este [enlace](https://developer.spotify.com/web-api/endpoint-reference/)
-- Estudia el flujo de la información:
-	- Es necesario buscar al artista por nombre usando *[/search/](https://developer.spotify.com/web-api/search-item/)*
-	- Para posteriormente buscar artistas similares usando el ID del artista escogido usando *[/artist/](https://developer.spotify.com/web-api/artist-endpoints/)*
-
-```javascript
-	// Tu solución
-```
 
 ![OpenWeatherMap_logo](https://upload.wikimedia.org/wikipedia/commons/1/15/OpenWeatherMap_logo.png)
 ![Madrid_logo](http://babytribu.com/wp-content/uploads/2012/09/AyuntamientoMadrid.png)
