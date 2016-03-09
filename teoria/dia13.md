@@ -63,7 +63,7 @@ Solo una función por evento
 			console.log("=============================")
 			// Desactivamos
 			if (document.removeEventListener){ 
-				document.removeEventListener('click', manejadorEventos, false);
+				document.removeEventListener('click', manejadorEventos);
 				console.info("Listener quitado con exito");
 			} else { // IE8
 				document.detachEvent('onclick', manejadorEventos);
@@ -71,7 +71,7 @@ Solo una función por evento
 			}
 		}
 		// Añadimos Listener
-		document.addEventListener('click', manejadorEventos, false);
+		document.addEventListener('click', manejadorEventos);
 	```	
 
 - Métodos:
