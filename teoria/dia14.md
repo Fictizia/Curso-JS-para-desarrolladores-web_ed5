@@ -17,9 +17,7 @@
 - Mira en detalle la [documentación oficial](http://developer.nytimes.com/docs)
 - Usa el *[Books API](http://developer.nytimes.com/docs/books_api/)*
 
-```javascript
-	// Tu solución
-```
+- **[Solución](../otros/NYTimes_hardcover_fiction_today.html)**
 
 **Concepto:**
 
