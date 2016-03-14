@@ -48,7 +48,7 @@
 	// Tu solución
 ```
 **Concepto:**
-- Portada:
+- Dashboard:
 
 ![NYTimes.png](../otros/best_sellers1.png)
 
