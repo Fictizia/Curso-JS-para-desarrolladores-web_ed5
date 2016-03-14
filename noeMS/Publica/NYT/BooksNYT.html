@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books NYT</title>
+
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Best Sellers</h1>
+        </div>
+    </header>
+    <div class="main">
+         <div class="container">
+            <div class="col-md-3" id="col1"></div>
+            <div class="col-md-3" id="col2"></div>
+            <div class="col-md-3" id="col3"></div>
+            <div class="col-md-3" id="col4"></div>
+        </div>
+    </div>
+   
+    
+    <!-- Boostrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+    
+    <script>
+        var APIKey = '3799d94864dea6be35634eae2c9757e0:13:74711211';
+
+
+        var fecha = 2015-02-24;
+        
+        // Gestión de peticiones AJAX 
+        //Añadimos un montón de callbacks para que todo se lance con sóla una llamada
+        function peticionAjax(url) {
+            var xmlHttp = new XMLHttpRequest();
+
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState === 4) {
+                    if (xmlHttp.status >= 100 && xmlHttp.status <= 300) {
+
+                        var datosCrudos = JSON.parse(xmlHttp.responseText);
+                         var datos = datosCrudos.results.books;
+
+                        for (var i = 0; i < datos.length; i ++) { 
+                            if ( i < datos.length) { 
+                                var y = i - 1; 
+                                var contenido = '<div><h6><strong>#' + datos[i].rank + datos[i].title + '</strong></h6>'; 
+                                contenido += '<ul><li><img src="' + datos[i].book_image + '" /></li>'; 
+                                contenido += '<li>' + datos[i].weeks_on_list + '</li>'; 
+                                contenido += '<li>' + datos[i].description + '</li>'; 
+                                contenido += '<li><a href="' + datos[i].amazon_product_url + '" title="Amazon"> Comprar </a></li></ul>';
+                                document.getElementById("col" + y).innerHTML = contenido;
+
+                            } else (xmlHttp.status >= 400 && xmlHttp.status <= 600) {
+
+                                    errorDatos(JSON.parse(xmlHttp.responseText));
+            
+                                }
+                            }
+                        }
+
+            xmlHttp.open("GET", url, true);
+            xmlHttp.send();
+        }
+
+        function errorDatos(error) {
+            document.getElementById("cargando").style.display = 'none'; //Bloquea el gif animado de cargando
+            document.getElementById("error-ajax").style.display = 'block'; // Lanza Error Ajax
+            document.getElementById("row-contenido").innerHTML = '<img src="http://www.404notfound.fr/assets/images/pages/img/androiddev101.jpg">'; //Le metemos una imagen
+            console.error("ERROR! 404", error);
+        }
+    }
+
+        // Arrancando
+        peticionAjax("http://api.nytimes.com/svc/books/v3/lists/2015-02+24/hardcover-fiction.json?&api-key=" + apiKey);
+    </script>
+    </script>
+    
+</body>
+</html>
