@@ -104,4 +104,3 @@
 - **Herramientas:**
   - [crossorigin.me GitHub](https://github.com/technoboy10/crossorigin.me)
   - [A CORS proxy replacement for everyone](http://crossorigin.me/)
-

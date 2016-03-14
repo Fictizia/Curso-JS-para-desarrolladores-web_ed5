@@ -1419,5 +1419,6 @@ Todos los ejercicios deben seguir el mismo proceso:
 	- Utiliza una estructura de archivos acorde
 	- Utiliza el ninja theme.
 
-- [Solución](otros/test_completo.html)
+- [Solución](otros/test_completo/index.html)
+
 
