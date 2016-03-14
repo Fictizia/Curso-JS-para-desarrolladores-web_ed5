@@ -89,7 +89,7 @@
 
 - Resultado:
 
-![NYTimes.png](../otros/NYTimes.png)
+![NYTimes.png](../otros/spotify2.png)
 
 
 ### Proyectos Personales
