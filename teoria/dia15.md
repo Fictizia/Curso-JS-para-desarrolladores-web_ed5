@@ -470,6 +470,7 @@ Seguridad:
 - [Social Login](https://www.firebase.com/docs/web/guide/user-auth.html)
 - [Despliege](https://www.firebase.com/docs/web/guide/deploying.html)
 
+**[WebSocket](https://es.wikipedia.org/wiki/WebSocket)**
 **[Ejemplo - SF Vehicles](https://geofire.firebaseapp.com/sfVehicles/index.html)**
 
 
