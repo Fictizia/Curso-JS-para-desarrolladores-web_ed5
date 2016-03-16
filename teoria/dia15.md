@@ -394,7 +394,7 @@ Seguridad:
   console.log('Server running at http://'+process.env.IP+':'+process.env.PORT+'/');
 ```
 
-- Rediccionamiento:
+- Redireccionamiento:
 ```javascript
   var http = require('http');
   
@@ -459,6 +459,19 @@ Seguridad:
 **Jade**
 
 ![Jade_logo](https://avatars0.githubusercontent.com/u/9338635?v=3&s=400)
+
+
+### NoBackend
+
+![fb_logo](http://www.livechat.codeteam.in/images/firebase-logo.png)
+
+**[Firebase](https://www.firebase.com/)**
+- [Base de datos NoSQL](https://www.firebase.com/docs/web/guide/understanding-data.html)
+- [Social Login](https://www.firebase.com/docs/web/guide/user-auth.html)
+- [Despliege](https://www.firebase.com/docs/web/guide/deploying.html)
+
+**[WebSocket](https://es.wikipedia.org/wiki/WebSocket)**
+**[Ejemplo - SF Vehicles](https://geofire.firebaseapp.com/sfVehicles/index.html)**
 
 
 ### Extras
