@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Spotify API</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <style type="text/css">
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        
+        body {
+            padding-top: 160px;
+            margin-bottom: 60px;
+        }
+        
+        #no-encontrado {
+            margin-top: 100px;
+        }
+        
+        #img-hombre {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #img-cargando {
+            max-width: 200px;
+            display: block;
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .puntuacion {
+            bottom: 20px;
+            position: absolute;
+        }
+        
+        .panel {
+            min-height: 380px;
+        }
+        
+        #row-contenido {
+            margin-top: 30px;
+        }
+        
+        #error-ajax {
+            display: none;
+        }
+        
+        #campo-buscador {
+            width: 350px;
+        }
+        
+        #cargando {
+            float: none;
+            margin: auto;
+            display: none;
+        }
+        
+        .caratula-disco {
+            width: 130px;
+        }
+        
+        .col-centered {
+            float: none;
+            margin: 0 auto;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background-color: #191414;
+        }
+        
+        #spotify-logo {
+            padding-top: 5px;
+            max-height: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="alert alert-dismissible alert-danger" id="error-ajax">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <strong>Oh Error!</strong> Error al cargar los datos del <a href="http://developer.nytimes.com/" target="_blank" class="alert-link">NYTimes API</a>
+        </div>
+
+
+        <div class="row" id="row-buscador">
+            <div class="col-md-12" id="col-buscador">
+                <h3 class="text-center">Encuentra Artistas Similares</h3>
+                <div class="input-group col-centered" id="campo-buscador">
+                    <input type="text" id="nombreArtista" class="form-control" placeholder="Tu artista favorito...">
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="row-contenido">
+        </div>
+
+        <div class="row" id="cargando">
+            <div class="col-md-12 col-centered">
+                <img id="img-cargando" src="https://d13yacurqjgara.cloudfront.net/users/493970/screenshots/1691794/progress.gif">
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                <a href="https://developer.spotify.com/web-api/" target="_blank"><img id="spotify-logo" src="http://www.brasstalavista.nl/wp-content/uploads/2015/02/6274.spotify-logo-horizontal-white-rgb.png"></a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        document.getElementById('nombreArtista').addEventListener('keypress', buscarArtista);
+
+        function buscarArtista() {
+            if (event.keyCode === 13) {
+
+                resetearRowContent();
+
+
+                document.getElementById("cargando").style.display = 'block';
+                var nombreArtista = document.getElementById('nombreArtista').value.trim();
+
+                peticionAJAX("https://api.spotify.com/v1/search?q=" + encodeURIComponent(nombreArtista) + "&type=artist", function(datos) {
+
+                    if (datos.artists.items.length === 0) {
+                        sinArtistasRelacionados(nombreArtista);
+                    } else {
+
+                        document.getElementById("info-contenido").innerHTML = '<h3 class="text-center no-encontrado">Artistas similares a ' + datos.artists.items[0].name + ':</h3>';
+
+
+                        peticionAJAX("https://api.spotify.com/v1/artists/" + datos.artists.items[0].id + "/related-artists", function(datos) {
+                            document.getElementById("cargando").style.display = 'none';
+                            datos = datos.artists;
+
+                            if (datos.length !== 0) {
+
+                                for (var i = 0; i <= 5; i++) {
+                                    var id = "col" + (i + 1);
+                                    var contenido = '<div class="panel panel-default"><div class="panel-body" data-id="' + datos[i].id + '">';
+                                    contenido += '<h4>' + datos[i].name + '</h4>';
+
+                                    if (datos[i].images.length !== 0) {
+                                        contenido += '<img class="caratula-disco" src="' + datos[i].images[0].url + '">';
+                                    }
+                                    contenido += '<hr>';
+                                    contenido += '<div class="puntuacion"><p>Seguidores: ' + datos[i].followers.total + '</p>';
+                                    contenido += '<p>Popularidad: ' + datos[i].popularity + '</p></div>';
+                                    contenido += '</div></div>';
+
+                                    document.getElementById(id).innerHTML = contenido;
+
+                                }
+
+                            } else {
+                                sinArtistasRelacionados(nombreArtista);
+                            }
+
+                        });
+
+                    }
+
+                });
+            }
+        }
+
+        function sinArtistasRelacionados(nombreArtista) {
+            document.getElementById("cargando").style.display = 'none';
+            document.getElementById("info-contenido").innerHTML = '<h3 class="text-center no-encontrado">' + nombreArtista + ' no se ha encontrado!</h3><img id="img-hombre" src="http://www.fanartreview.com/images/hfartct.jpg">';
+        }
+
+        function resetearRowContent() {
+            var divsDefecto = '<div class="col-md-12" id="info-contenido"></div>';
+            divsDefecto += '<div class="col-md-2" id="col1"></div>';
+            divsDefecto += '<div class="col-md-2" id="col2"></div>';
+            divsDefecto += '<div class="col-md-2" id="col3"></div>';
+            divsDefecto += '<div class="col-md-2" id="col4"></div>';
+            divsDefecto += '<div class="col-md-2" id="col5"></div>';
+            divsDefecto += '<div class="col-md-2" id="col6"></div>';
+
+            document.getElementById("row-contenido").innerHTML = divsDefecto;
+
+        }
+
+        function peticionAJAX(url, cb) {
+
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState === 4) {
+                    if (xmlHttp.status >= 100 && xmlHttp.status <= 300) {
+                        var datosCrudos = JSON.parse(xmlHttp.responseText);
+                        cb(datosCrudos);
+                    } else if (xmlHttp.status >= 400 && xmlHttp.status <= 600) {
+
+                        document.getElementById("cargando").style.display = 'none';
+                        document.getElementById("error-ajax").style.display = 'block';
+                        document.getElementById("info-contenido").innerHTML = '<img src="http://www.404notfound.fr/assets/images/pages/img/androiddev101.jpg">';
+                        console.error("ERROR! 404", JSON.parse(xmlHttp.responseText));
+                    }
+                }
+            };
+            xmlHttp.open("GET", url, true);
+            xmlHttp.send();
+        }
+    </script>
+</body>
+
+</html>

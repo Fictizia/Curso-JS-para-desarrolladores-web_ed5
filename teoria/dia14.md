@@ -42,9 +42,9 @@
 - Debes incluir el titulo y la posición que ocupa en la lista ( #1 titulo.... #2 titulo....)
 - Debes incluir el link para poder comprar el libro en amazon (debe abrirse en otra pestaña)
 
-```javascript
-	// Tu solución
-```
+- **[Solución](../otros/NYTimes_best_sellers.html)**
+
+
 **Concepto:**
 - Dashboard:
 
@@ -75,9 +75,7 @@
 	- Es necesario buscar al artista por nombre usando *[/search/](https://developer.spotify.com/web-api/search-item/)*
 	- Para posteriormente buscar artistas similares usando el ID del artista escogido usando *[/artist/](https://developer.spotify.com/web-api/artist-endpoints/)*
 
-```javascript
-	// Tu solución
-```
+- **[Solución](../otros/spotify.html)**
 
 **Concepto:**
 
