@@ -466,11 +466,11 @@ Seguridad:
 ![fb_logo](http://www.livechat.codeteam.in/images/firebase-logo.png)
 
 **[Firebase](https://www.firebase.com/)**
-    - [Base de datos NoSQL](https://www.firebase.com/docs/web/guide/understanding-data.html)
-    - [Social Login](https://www.firebase.com/docs/web/guide/user-auth.html)
-    - [Despliege](https://www.firebase.com/docs/web/guide/deploying.html)
+- [Base de datos NoSQL](https://www.firebase.com/docs/web/guide/understanding-data.html)
+- [Social Login](https://www.firebase.com/docs/web/guide/user-auth.html)
+- [Despliege](https://www.firebase.com/docs/web/guide/deploying.html)
 
-- [Ejemplo - SF Vehicles](https://geofire.firebaseapp.com/sfVehicles/index.html)
+**[Ejemplo - SF Vehicles](https://geofire.firebaseapp.com/sfVehicles/index.html)**
 
 
 ### Extras
