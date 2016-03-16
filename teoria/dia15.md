@@ -394,7 +394,7 @@ Seguridad:
   console.log('Server running at http://'+process.env.IP+':'+process.env.PORT+'/');
 ```
 
-- Rediccionamiento:
+- Redireccionamiento:
 ```javascript
   var http = require('http');
   
