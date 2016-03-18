@@ -55,6 +55,74 @@ Teoría | Recursos
 
 **[Extra](teoria/extra.md)**
 
+Aplicaciones Realizadas
+=================
+**Máquina expendedora**
+- Objetivo:
+    - El objetivo de este ejercicio es crear una máquina expendedora que funcione solamente con la consola del navegador.
+- Versiones:
+    - [Máquina Expendedora (Paso a paso)](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/blob/master/teoria/dia9.md)
+
+
+**Buenos Días, Madrid**
+- Objetivo:
+    - Crear una aplicación que nos muestre en tiempo real usando AJAX y APIs de terceros la [previsión meteorológica](http://openweathermap.org/) para hoy y los próximos 4 días, que además nos facilite de la información en tiempo real sobre la [contaminación del aire en Madrid](http://airemadrid.herokuapp.com/) y la imagen al azar de una [cámara de tráfico](http://www.dgt.es/es/el-trafico/camaras-de-trafico/madrid/).
+
+- Concepto:
+
+![img](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/blob/master/otros/buenos_dias_madrid.png)
+
+- Código:
+    - [Buenos Días, Madrid!](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/tree/master/otros/buenos_dias_madrid)
+
+
+**NYTimes - Hardcover Fiction**
+- Objetivo:
+    - Crear una aplicación que nos muestre los libros más vendidos según el [NYTimes](http://www.nytimes.com/) a fecha de hoy en la categoría de ficción, usando AJAX.
+
+- Concepto:
+
+![img](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/blob/master/otros/NYTimes.png)
+
+- Código:
+    - [NYTimes - Hardcover Fiction](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/blob/master/otros/NYTimes_hardcover_fiction_today.html)
+
+
+
+**NYTimes - Best Sellers**
+- Objetivo:
+    - Crear una aplicación que nos muestre todas las listas de *los más vendidos* y nos permita elegir y visualizar el contenido de cada lista. Para realizar el ejercicio usaremos múltiples llamadas AJAX que se combinan dentro de un único archivo html.
+
+- Concepto:
+	- Dashboard
+	
+	![img](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/blob/master/otros/best_sellers1.png)
+
+	- En una lista
+	
+	![img](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/blob/master/otros/best_sellers2.png)
+
+- Código:
+    - [NYTimes - Hardcover Fiction hoy](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/blob/master/otros/NYTimes_best_sellers.html)
+
+
+**Spotify - Encuentra artistas similares**
+- Objetivo:
+    - Crear una aplicación que nos permita buscar artistas similares partiendo del nombre de un grupo/cantante. Para realizar el ejercicio usaremos múltiples llamadas AJAX que se combianan dentro de un único archivo html, haciendo necesario la gestión de posibles errores entre las peticione y resultados incompletos o no deseados.
+
+- Concepto:
+	- Buscador
+	
+	![img](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/blob/master/otros/spotify1.png)
+
+	- Resultados
+	
+	![img](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/blob/master/otros/spotify2.png)
+
+- Código:
+    - [Spotify - Encuentra artistas similares](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed5/blob/master/otros/spotify.html)
+
+
 Temario
 =================
 
