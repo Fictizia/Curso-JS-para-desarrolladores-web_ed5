@@ -129,7 +129,7 @@
     <script type="text/javascript">
         document.getElementById('nombreArtista').addEventListener('keypress', buscarArtista);
 
-        function buscarArtista() {
+        function buscarArtista(event) {
             if (event.keyCode === 13) {
 
                 resetearRowContent();
