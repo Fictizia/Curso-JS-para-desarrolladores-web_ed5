@@ -55,6 +55,14 @@ Teoría | Recursos
 
 **[Extra](teoria/extra.md)**
 
+Proyectos Personales de los alumnos
+=================
+
+**[Across the universe](http://noemimedina.com/projects/AcrossTheUniverse/) de [NoemiMS](http://noemimedina.com/)**
+![across](otros/projectos/across)
+- [Código](https://github.com/NoemiMS/Proyecto-Final-Curso-JS-Fictizia-2016)
+- [Demo](http://noemimedina.com/projects/AcrossTheUniverse/)
+
 Aplicaciones Realizadas
 =================
 **Máquina expendedora**
